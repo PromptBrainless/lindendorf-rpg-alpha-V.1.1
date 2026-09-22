@@ -1,4 +1,5 @@
 import type { EffektId, Held } from "./types";
+import { attributMitGegenstand } from "./gegenstaende";
 
 export type { EffektId };
 
@@ -148,7 +149,7 @@ export function attributMitEffekt(held: Held, attributName: string, basis: numbe
       if (charisma && mod.charisma == null) wert += mod.uebrige;
     }
   }
-  return Math.max(1, wert);
+  return Math.max(1, attributMitGegenstand(held, attributName, wert));
 }
 
 export function werteMitEffekt(held: Held): { staerke: number; geschick: number; charisma: number } {

@@ -32,11 +32,13 @@ export function urteilAusrichtung(arten: HerkunftArt[]): {
 } {
   const gesamt = zaehle(arten);
   let fuehrer = fuehrende(gesamt);
-  if (fuehrer.length > 1 && arten[9] && fuehrer.includes(arten[9])) {
-    fuehrer = [arten[9]];
+  const letzte = arten[arten.length - 1];
+  if (fuehrer.length > 1 && letzte && fuehrer.includes(letzte)) {
+    fuehrer = [letzte];
   }
   if (fuehrer.length > 1) {
-    const spaet = zaehle(arten.slice(6, 10));
+    const von = Math.max(0, arten.length - 4);
+    const spaet = zaehle(arten.slice(von));
     const spaetFuehrer = fuehrende(spaet).filter((art) => fuehrer.includes(art));
     if (spaetFuehrer.length === 1) fuehrer = spaetFuehrer;
   }

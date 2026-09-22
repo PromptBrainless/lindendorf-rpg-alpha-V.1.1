@@ -6,8 +6,12 @@ import { ART, lageBild } from "@/game/art";
 import { EFFEKTE, werteMitEffekt } from "@/game/effekte";
 import {
   baueHeldAusHerkunft,
+  LAGE_ZUG_ANZAHL,
+  neueLageSaat,
   urteilAusrichtung,
+  zieheLagen,
   type HerkunftArt,
+  type HerkunftFrage,
 } from "@/game/herkunft";
 import { peekSaveForName } from "@/game/save";
 import { sichtbareHerkunft } from "@/game/welt";
@@ -30,16 +34,33 @@ export function CreateHero({
   const [schritt, setSchritt] = useState(-1);
   const [antworten, setAntworten] = useState<number[]>([]);
   const [rueck, setRueck] = useState(false);
+  const [saat, setSaat] = useState(0);
+  const [zug, setZug] = useState<string[]>([]);
 
-  const fragen = sichtbareHerkunft();
+  const alle = sichtbareHerkunft();
+  const fragen = useMemo(() => {
+    if (!zug.length) return [] as HerkunftFrage[];
+    const nachId = new Map(alle.map((frage) => [frage.id, frage]));
+    return zug.map((id) => nachId.get(id)).filter((frage): frage is HerkunftFrage => Boolean(frage));
+  }, [alle, zug]);
   const frage = schritt >= 0 && schritt < fragen.length && !rueck ? fragen[schritt] : undefined;
-  const fertig = antworten.length >= fragen.length && !rueck;
-  const standHeld = antworten.length ? baueHeldAusHerkunft(name, antworten, fragen) : null;
+  const fertig = fragen.length === LAGE_ZUG_ANZAHL && antworten.length >= fragen.length && !rueck;
+  const standHeld = antworten.length ? baueHeldAusHerkunft(name, antworten, fragen, saat) : null;
   const held = fertig ? standHeld : null;
   const vorhandenerStand = useMemo(() => peekSaveForName(name), [name]);
   const hintergrund = fertig ? ART.village : frage ? lageBild(frage.id) || ART.road : ART.road;
   const letzteFrage = rueck ? fragen[antworten.length - 1] : undefined;
   const letzteAntwort = letzteFrage?.antworten[antworten[antworten.length - 1] ?? -1];
+
+  function starteLagen() {
+    const neu = neueLageSaat(name);
+    const gezogen = zieheLagen(alle, neu, LAGE_ZUG_ANZAHL);
+    setSaat(neu);
+    setZug(gezogen.map((frage) => frage.id));
+    setAntworten([]);
+    setRueck(false);
+    setSchritt(0);
+  }
 
   function waehle(index: number) {
     setAntworten([...antworten, index]);
@@ -75,9 +96,9 @@ export function CreateHero({
           {schritt < 0 ? (
             <>
               <p className="mt-3 text-sm leading-relaxed text-fg/90">
-                Du stehst noch nicht in Lindendorf. Zehn Lagen liegen vor dem Tal. Jede Wahl lässt
-                etwas zurück: Blut, Gold, einen Zustand. Höchstens drei Zustände bleiben. Am Ende
-                spricht die Welt ein Urteil über dich — den Spiegeltext.
+                Du stehst noch nicht in Lindendorf. Drei von zehn Lagen liegen vor dem Tal. Der Zug
+                ist zufällig. Jede Wahl lässt etwas zurück: Blut, Gold, einen Zustand. Höchstens drei
+                Zustände bleiben. Am Ende spricht die Welt ein Urteil über dich — den Spiegeltext.
               </p>
               <label className="mt-5 block text-sm text-muted-fg" htmlFor="hero-name">
                 Name
@@ -112,7 +133,7 @@ export function CreateHero({
                 </div>
               ) : null}
               <div className="mt-6 grid gap-2 sm:grid-cols-2">
-                <Button size="lg" onClick={() => setSchritt(0)}>
+                <Button size="lg" onClick={starteLagen}>
                   {vorhandenerStand ? "Neues Abenteuer" : "Die erste Lage"}
                 </Button>
                 <Button variant="secondary" size="lg" onClick={onBack}>
@@ -177,6 +198,8 @@ export function CreateHero({
                 setSchritt(-1);
                 setAntworten([]);
                 setRueck(false);
+                setZug([]);
+                setSaat(0);
               }}
             />
           ) : null}

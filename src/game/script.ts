@@ -384,10 +384,7 @@ async function dorfBuergermeister(rt: Runtime, held: Held) {
         ...echoHolmVersorgung(held),
       ],
     });
-    return;
-  }
-
-  if (held.auftragErhalten) {
+  } else if (held.auftragErhalten) {
     await rt.present({
       held,
       lines: [
@@ -398,64 +395,123 @@ async function dorfBuergermeister(rt: Runtime, held: Held) {
     });
   }
 
-  const wahl = await rt.present({
-    held,
-      lines: [
-        held.auftragErhalten
-          ? "Der Auftrag steht. Du kannst jetzt noch entscheiden, wie du ihn trägst. Holm braucht deine Hand, aber er hat noch nicht entschieden, ob er dir auch seinen Rücken zeigt."
-          : "Du kannst den Auftrag einfach annehmen — oder ihn dir verdienen. Hinter Holm tickt eine Uhr, obwohl du keine siehst. Jeder Schlag klingt wie ein weiterer Sack Mehl, der im Steinbruch verschwindet.",
-    ],
-    choices: [
-      held.auftragErhalten ? "Beim Auftrag bleiben" : "Auftrag nüchtern annehmen",
-      "Vertrauen gewinnen (Charisma, mittel)",
-      "Druck machen und Gold fordern (Charisma, schwer)",
-      "Wieder gehen",
-    ],
-  });
+  let vertrauenGesagt = held.buergermeisterVertraut;
+  let druckGesagt = false;
 
-  if (wahl === 0) {
-    held.auftragErhalten = true;
-    await rt.present({
+  while (!tot(held)) {
+    const holmRuf = rufAus(held, "holm");
+    const wahl = await rt.present({
+      title: "Rathaus",
+      art: "townhall",
+      portrait: "holm",
       held,
       lines: [
-        "„Gut. Bring zurück, was sie genommen haben. Oder sorge, dass sie nicht wiederkommen.“",
-        "Holm nickt knapp. Mehr Wärme hat dieses Amt nicht übrig.",
-        "Er schiebt den Brief zur Seite und nimmt eine kleine Messingmarke aus der Schublade. Darauf ist das Wappen des Tals so flach geprägt, dass man es nur im Streiflicht erkennt.",
-        "„Zeig das am alten Weg, wenn dich jemand anhält. Wenn es noch jemand gibt, der sich davon beeindrucken lässt.“",
+        held.auftragErhalten
+          ? "Der Auftrag steht. Du kannst noch fragen, oder du gehst. Holm bleibt hinter dem Tisch."
+          : "Du kannst den Auftrag einfach annehmen — oder ihn dir verdienen. Hinter Holm tickt eine Uhr, obwohl du keine siehst.",
+        ...(holmRuf >= 15
+          ? ["Holm sieht dich länger an als das Amt verlangt."]
+          : holmRuf < 0
+            ? ["Holm lässt die Hand auf dem Brief. Der Tisch ist die Grenze."]
+            : []),
+      ],
+      choices: [
+        held.auftragErhalten ? "Beim Auftrag bleiben" : "Auftrag nüchtern annehmen",
+        held.buergermeisterVertraut || vertrauenGesagt
+          ? "Vertrauen — schon gesagt"
+          : "Vertrauen gewinnen (Charisma, mittel)",
+        druckGesagt ? "Gold — schon gefordert" : "Druck machen und Gold fordern (Charisma, schwer)",
+        "Wieder gehen",
       ],
     });
-  } else if (wahl === 1) {
-    const ergebnis = probe(held, "Charisma", held.charisma, MITTEL, "Vertrauen des Bürgermeisters", undefined, "reden");
-    if (ergebnis.erfolg) {
-      held.auftragErhalten = true;
-      held.buergermeisterVertraut = true;
-      const gold = goldPlus(held, 5, "Vorschuss");
-      const item = nimm(held, HEILTRANK);
+
+    if (wahl === 3) {
       await rt.present({
         held,
-        probe: ergebnis,
-        log: [gold, item],
         lines: [
-          "„Nimm das. Aus der Apotheke der Witwe Kern. Und fünf Taler, mehr ist nicht da.“",
-          "Holm sieht dich an, als hättest du etwas unterschrieben, das nicht auf Papier steht.",
-          "Er zieht die Münzen einzeln aus der Kasse. Jede schlägt auf das Holz, als müsste sie erst beweisen, dass sie echt ist.",
-          "„Wenn du zurückkommst, erzähl mir nicht zuerst, ob du gewonnen hast. Sag mir, wer gefehlt hat.“",
+          "Du lässt Holm mit seiner leeren Kasse.",
+          "Hinter dir raschelt der Brief, obwohl kein Wind durch das Rathaus geht. Vielleicht ist es nur das Papier. Vielleicht ist es das, was darin fehlt.",
+          "Auf dem Platz wartet niemand auf deine Entscheidung. Das Dorf wird sie trotzdem erfahren.",
         ],
       });
-    } else {
-      held.auftragErhalten = true;
-      await rt.present({
-        held,
-        probe: ergebnis,
-        lines: [
-          "Holm bleibt kühl.",
-          "„Worte habe ich genug gehört. Tu die Arbeit. Belohnung nach Ergebnis.“",
-          "Seine Stimme wird nicht lauter. Das macht sie schlimmer. Hinter ihm knackt das Holz der leeren Kasse, als würde auch sie zuhören.",
-          "Du verlässt das Rathaus mit einem Auftrag, aber ohne das Gefühl, dass er dir gehört.",
-        ],
-      });
+      return;
     }
-  } else if (wahl === 2) {
+
+    if (wahl === 0) {
+      if (held.auftragErhalten) {
+        await rt.present({
+          held,
+          lines: ["Der Auftrag steht. Die Messingmarke liegt schon bei dir. Holm sagt den Satz nicht noch einmal."],
+        });
+        continue;
+      }
+      held.auftragErhalten = true;
+      await rt.present({
+        held,
+        lines: [
+          "„Gut. Bring zurück, was sie genommen haben. Oder sorge, dass sie nicht wiederkommen.“",
+          "Holm nickt knapp. Mehr Wärme hat dieses Amt nicht übrig.",
+          "Er schiebt den Brief zur Seite und nimmt eine kleine Messingmarke aus der Schublade. Darauf ist das Wappen des Tals so flach geprägt, dass man es nur im Streiflicht erkennt.",
+          "„Zeig das am alten Weg, wenn dich jemand anhält. Wenn es noch jemand gibt, der sich davon beeindrucken lässt.“",
+        ],
+      });
+      continue;
+    }
+
+    if (wahl === 1) {
+      if (held.buergermeisterVertraut || vertrauenGesagt) {
+        await rt.present({
+          held,
+          lines: [
+            held.buergermeisterVertraut
+              ? "Holm hebt die Hand nicht noch einmal. Was er geben konnte, liegt bereits bei dir."
+              : "Holm hat zugehört. Ein zweites Mal klingt derselbe Satz nur ärmer.",
+          ],
+        });
+        continue;
+      }
+      vertrauenGesagt = true;
+      const ergebnis = probe(held, "Charisma", held.charisma, MITTEL, "Vertrauen des Bürgermeisters", undefined, "reden");
+      if (ergebnis.erfolg) {
+        held.auftragErhalten = true;
+        held.buergermeisterVertraut = true;
+        const gold = goldPlus(held, 5, "Vorschuss");
+        const item = nimm(held, HEILTRANK);
+        await rt.present({
+          held,
+          probe: ergebnis,
+          log: [gold, item],
+          lines: [
+            "„Nimm das. Aus der Apotheke der Witwe Kern. Und fünf Taler, mehr ist nicht da.“",
+            "Holm sieht dich an, als hättest du etwas unterschrieben, das nicht auf Papier steht.",
+            "Er zieht die Münzen einzeln aus der Kasse. Jede schlägt auf das Holz, als müsste sie erst beweisen, dass sie echt ist.",
+            "„Wenn du zurückkommst, erzähl mir nicht zuerst, ob du gewonnen hast. Sag mir, wer gefehlt hat.“",
+          ],
+        });
+      } else {
+        held.auftragErhalten = true;
+        await rt.present({
+          held,
+          probe: ergebnis,
+          lines: [
+            "Holm bleibt kühl.",
+            "„Worte habe ich genug gehört. Tu die Arbeit. Belohnung nach Ergebnis.“",
+            "Seine Stimme wird nicht lauter. Das macht sie schlimmer. Hinter ihm knackt das Holz der leeren Kasse, als würde auch sie zuhören.",
+            "Du stehst noch im Rathaus. Der Auftrag liegt auf dem Tisch. Freundschaft nicht.",
+          ],
+        });
+      }
+      continue;
+    }
+
+    if (druckGesagt) {
+      await rt.present({
+        held,
+        lines: ["Die Kasse bleibt zu. Holm hat die Zahl schon gehört."],
+      });
+      continue;
+    }
+    druckGesagt = true;
     const ergebnis = probe(held, "Charisma", held.charisma, SCHWER, "Gold erpressen", undefined, "reden");
     if (ergebnis.erfolg) {
       held.auftragErhalten = true;
@@ -468,7 +524,6 @@ async function dorfBuergermeister(rt: Runtime, held: Held) {
           "Holm zahlt, aber sein Blick sagt: Das vergisst ein Dorf nicht so schnell.",
           "Vertrauen ist das nicht. Nur Notwendigkeit.",
           "Er zählt das Gold nicht nach. Er weiß, dass du es tun wirst. Zwischen euch liegt nun eine Rechnung, die nicht auf Papier passt.",
-          "Draußen wartet das Dorf. Es wird merken, ob du leichter gehst als vorher.",
         ],
       });
     } else {
@@ -484,15 +539,6 @@ async function dorfBuergermeister(rt: Runtime, held: Held) {
         ],
       });
     }
-  } else {
-    await rt.present({
-      held,
-      lines: [
-        "Du lässt Holm mit seiner leeren Kasse.",
-        "Hinter dir raschelt der Brief, obwohl kein Wind durch das Rathaus geht. Vielleicht ist es nur das Papier. Vielleicht ist es das, was darin fehlt.",
-        "Auf dem Platz wartet niemand auf deine Entscheidung. Das Dorf wird sie trotzdem erfahren.",
-      ],
-    });
   }
 }
 
@@ -530,103 +576,148 @@ async function dorfTaverne(
     ],
   });
 
-  const wahl = await rt.present({
-    held,
-    lines: ["Was tust du?"],
-    choices: [
-      "Gerüchte hören",
-      "Laut ankündigen, dass du die Banditen jagst",
-      held.gold >= 5 ? "Heiltrank kaufen (5 Gold)" : "Heiltrank kaufen — zu wenig Gold",
-      "Mara nach der Hintertür fragen",
-      "Nach Maras letztem Gast fragen",
-      "Wieder hinaus",
-    ],
-  });
+  let laut = lautAngekundigt;
+  let geruechte = false;
+  while (!tot(held)) {
+    const maraRuf = rufAus(held, "mara");
+    const wahl = await rt.present({
+      title: "Zum letzten Fass",
+      art: "tavern",
+      portrait: "mara",
+      held,
+      lines: [
+        "Was tust du?",
+        ...(maraRuf >= 8
+          ? ["Mara stellt den Becher hin, bevor du sitzt."]
+          : maraRuf <= -6
+            ? ["Mara wischt an dir vorbei. Der Lappen trifft die Stelle, nicht dich."]
+            : []),
+      ],
+      choices: [
+        geruechte ? "Gerüchte — schon gehört" : "Gerüchte hören",
+        laut ? "Ankündigung — schon gesagt" : "Laut ankündigen, dass du die Banditen jagst",
+        held.gold >= 5 ? "Heiltrank kaufen (5 Gold)" : "Heiltrank kaufen — zu wenig Gold",
+        "Mara nach der Hintertür fragen",
+        "Nach Maras letztem Gast fragen",
+        "Wieder hinaus",
+      ],
+    });
 
-  if (wahl === 0) {
-    const lines = [
-      "Ein Holzfäller murmelt:",
-      "„Die nehmen nicht den Hauptweg. Östlicher Wildpfad, wo die alte Eiche vom Blitz gespalten ist.“",
-      "Mara ergänzt leise: „Einer von ihnen trinkt hier manchmal. Nennt sich Kess. Hört gerne zu.“",
-      "Der Holzfäller fährt mit dem Daumen über die Kerbe in seinem Becher. „Wenn die Glocke dreimal geht, bleiben die Hunde drin. Wenn sie einmal geht, fehlt jemand.“",
-      "Mara stellt einen zweiten Becher auf den Tisch, obwohl niemand darum gebeten hat. Darin ist nur Wasser.",
-    ];
-    if (rumorenGehoert) {
-      lines.push(
-        "Mara nickt zum Brunnen hinüber. „Die Müllerin hat mehr gesehen, als sie sagen will.“",
-        "Seit drei Nächten schläft dort keiner durch. Nicht wegen der Trommeln.",
-      );
-    }
-    if (lautAngekundigt) {
-      lines.push(
-        "Mara hört bis zum Ende zu. Dann stellt sie das Tuch beiseite.",
-        "„Kess hört gerne zu. Heute vielleicht genauer als sonst.“",
-        "Sie sagt deinen Namen nicht. Sie muss ihn nicht kennen. In einem kleinen Tal reicht es, wenn man weiß, wer mit geradem Rücken hinausgegangen ist.",
-      );
-    }
-    await rt.present({ held, lines });
-  } else if (wahl === 1) {
-    const ergebnis = probe(held, "Charisma", held.charisma, MITTEL, "den Raum für dich gewinnen", undefined, "reden");
-    if (ergebnis.erfolg) {
-      const gold = goldPlus(held, 1, "Biergeld eines Betrunkenen, der an dich glaubt");
-      await rt.present({
-        held,
-        probe: ergebnis,
-        log: [gold],
-        lines: [
-          "Du stellst dich hin und sagst den Raum, was du vorhast.",
-          "Zwei Gäste klatschen unsicher. Ein Dritter steht auf und geht, ohne zu zahlen.",
-          "Mara stellt dir ein Bier hin, das niemand bestellt hat.",
-          "„Pass auf Kess auf. Und auf den Graben vor dem Lager. Den haben sie neu gezogen.“",
-        ],
-      });
-    } else {
-      held.banditenGewarnt = true;
-      await rt.present({
-        held,
-        probe: ergebnis,
-        lines: [
-          "Du stellst dich hin und sagst den Raum, was du vorhast.",
-          "Zu viele Ohren. Zu viele offene Münder.",
-          "Mara hört auf zu wischen. Irgendwo zwischen Theke und Tür ist dein Plan schon weitergereist.",
-          "Die Banditen werden wissen, dass jemand kommt.",
-        ],
-      });
-    }
-  } else if (wahl === 2) {
-    if (held.gold >= 5) {
-      if (hat(held, HEILTRANK)) {
+    if (wahl === 0) {
+      if (geruechte) {
         await rt.present({
           held,
-          lines: ["Mara zuckt mit den Schultern. „Einen zweiten habe ich nicht.“"],
+          lines: ["Der Holzfäller murmelt den Ostpfad noch einmal, leiser. Mara sagt den Namen Kess nicht noch einmal."],
+        });
+        continue;
+      }
+      geruechte = true;
+      const lines = [
+        "Ein Holzfäller murmelt:",
+        "„Die nehmen nicht den Hauptweg. Östlicher Wildpfad, wo die alte Eiche vom Blitz gespalten ist.“",
+        "Mara ergänzt leise: „Einer von ihnen trinkt hier manchmal. Nennt sich Kess. Hört gerne zu.“",
+        "Der Holzfäller fährt mit dem Daumen über die Kerbe in seinem Becher. „Wenn die Glocke dreimal geht, bleiben die Hunde drin. Wenn sie einmal geht, fehlt jemand.“",
+        "Mara stellt einen zweiten Becher auf den Tisch, obwohl niemand darum gebeten hat. Darin ist nur Wasser.",
+      ];
+      if (rumorenGehoert) {
+        lines.push(
+          "Mara nickt zum Brunnen hinüber. „Die Müllerin hat mehr gesehen, als sie sagen will.“",
+          "Seit drei Nächten schläft dort keiner durch. Nicht wegen der Trommeln.",
+        );
+      }
+      if (laut) {
+        lines.push(
+          "Mara hört bis zum Ende zu. Dann stellt sie das Tuch beiseite.",
+          "„Kess hört gerne zu. Heute vielleicht genauer als sonst.“",
+          "Sie sagt deinen Namen nicht. Sie muss ihn nicht kennen. In einem kleinen Tal reicht es, wenn man weiß, wer mit geradem Rücken hinausgegangen ist.",
+        );
+      }
+      await rt.present({ held, lines });
+      continue;
+    }
+
+    if (wahl === 1) {
+      if (laut) {
+        await rt.present({
+          held,
+          lines: ["Der Raum hat dich schon gehört. Ein zweites Mal klatscht niemand, und niemand zahlt noch einmal."],
+        });
+        continue;
+      }
+      const ergebnis = probe(held, "Charisma", held.charisma, MITTEL, "den Raum für dich gewinnen", undefined, "reden");
+      if (ergebnis.erfolg) {
+        const gold = goldPlus(held, 1, "Biergeld eines Betrunkenen, der an dich glaubt");
+        laut = true;
+        await rt.present({
+          held,
+          probe: ergebnis,
+          log: [gold],
+          lines: [
+            "Du stellst dich hin und sagst den Raum, was du vorhast.",
+            "Zwei Gäste klatschen unsicher. Ein Dritter steht auf und geht, ohne zu zahlen.",
+            "Mara stellt dir ein Bier hin, das niemand bestellt hat.",
+            "„Pass auf Kess auf. Und auf den Graben vor dem Lager. Den haben sie neu gezogen.“",
+          ],
         });
       } else {
-        held.gold -= 5;
-        const item = nimm(held, HEILTRANK);
+        held.banditenGewarnt = true;
+        laut = true;
         await rt.present({
           held,
-          log: [item],
-          lines: ["Mara schiebt dir ein kleines Fläschchen zu. „Witwe Kerns Restbestand.“"],
+          probe: ergebnis,
+          lines: [
+            "Du stellst dich hin und sagst den Raum, was du vorhast.",
+            "Zu viele Ohren. Zu viele offene Münder.",
+            "Mara hört auf zu wischen. Irgendwo zwischen Theke und Tür ist dein Plan schon weitergereist.",
+            "Die Banditen werden wissen, dass jemand kommt.",
+          ],
         });
       }
-    } else {
-      await rt.present({
-        held,
-        lines: ["Fünf Gold. Du hast weniger. Mara hebt nicht einmal den Deckel."],
-      });
+      continue;
     }
-  } else if (wahl === 3) {
-    await dorfMaraHintertuer(rt, held);
-  } else if (wahl === 4) {
-    await dorfMarasLetzterGast(rt, held);
-  } else {
+
+    if (wahl === 2) {
+      if (held.gold >= 5) {
+        if (hat(held, HEILTRANK)) {
+          await rt.present({
+            held,
+            lines: ["Mara zuckt mit den Schultern. „Einen zweiten habe ich nicht.“"],
+          });
+        } else {
+          held.gold -= 5;
+          const item = nimm(held, HEILTRANK);
+          await rt.present({
+            held,
+            log: [item],
+            lines: ["Mara schiebt dir ein kleines Fläschchen zu. „Witwe Kerns Restbestand.“"],
+          });
+        }
+      } else {
+        await rt.present({
+          held,
+          lines: ["Fünf Gold. Du hast weniger. Mara hebt nicht einmal den Deckel."],
+        });
+      }
+      continue;
+    }
+
+    if (wahl === 3) {
+      await dorfMaraHintertuer(rt, held);
+      continue;
+    }
+
+    if (wahl === 4) {
+      await dorfMarasLetzterGast(rt, held);
+      continue;
+    }
+
     await rt.present({
       held,
       lines: ["Die Tür fällt ins Schloss. Draußen ist die Luft ehrlicher."],
     });
+    return laut;
   }
-
-  return wahl === 1;
+  return laut;
 }
 
 async function dorfMarasLetzterGast(rt: Runtime, held: Held) {
@@ -797,57 +888,67 @@ async function dorfMaraHintertuer(rt: Runtime, held: Held) {
 }
 
 async function dorfPlatz(rt: Runtime, held: Held, rumorenGehoert: boolean): Promise<boolean> {
-  const choices = [
-    "Am Brunnen lauschen",
-    held.loesungswegBrunnen ? "Den Brunnen noch einmal ansehen" : "Den trüben Eimer prüfen",
-    "Dem Jungen mit der roten Schnur folgen",
-    "Zurück zum Dorf",
-  ];
-  const wahl = await rt.present({
-    title: "Brunnen und Dorfplatz",
-    art: "village",
-    portrait: null,
-    held,
-    lines: [
-      "Der Dorfplatz ist klein genug, dass jedes Gespräch einen Zeugen findet.",
-      "Am Brunnen tropft Wasser auf den Stein. Hinter dem Trog wartet ein Junge mit einer roten Schnur.",
-      held.loesungswegBrunnen
-        ? "Der Eimer am Brunnen ist nicht mehr der, den man stehen lässt."
-        : "Der Eimer am Brunnen steht halb voll. Das Wasser darin ist trüb und leicht bitter.",
-      "Neben der Mauer stehen drei leere Körbe. Auf jedem ist mit Kreide ein Familienname geschrieben. Der Regen hat zwei davon fast ausgelöscht.",
-      "Ein Schwein wühlt zwischen den Rinnen des Platzes. Niemand scheucht es fort. Was es findet, muss später niemand wegtragen.",
-    ],
-    choices,
-  });
-  const gewaehlt = choices[wahl];
-  if (gewaehlt === "Am Brunnen lauschen") await dorfBrunnen(rt, held);
-  else if (gewaehlt === "Den trüben Eimer prüfen" || gewaehlt === "Den Brunnen noch einmal ansehen") {
-    await dorfTruebesWasser(rt, held);
-  } else if (gewaehlt === "Dem Jungen mit der roten Schnur folgen") await dorfRoteSchnur(rt, held);
-  else if (rumorenGehoert) await rt.present({ held, lines: ["Du bleibst auf dem Platz. Die Stimmen kommen und gehen."] });
-  return gewaehlt === "Am Brunnen lauschen";
+  let rumoren = rumorenGehoert;
+  while (!tot(held)) {
+    const choices = [
+      "Am Brunnen lauschen",
+      held.loesungswegBrunnen ? "Den Brunnen noch einmal ansehen" : "Den trüben Eimer prüfen",
+      "Dem Jungen mit der roten Schnur folgen",
+      "Zurück zum Dorf",
+    ];
+    const wahl = await rt.present({
+      title: "Brunnen und Dorfplatz",
+      art: "village",
+      portrait: null,
+      held,
+      lines: [
+        "Der Dorfplatz ist klein genug, dass jedes Gespräch einen Zeugen findet.",
+        "Am Brunnen tropft Wasser auf den Stein. Hinter dem Trog wartet ein Junge mit einer roten Schnur.",
+        held.loesungswegBrunnen
+          ? "Der Eimer am Brunnen ist nicht mehr der, den man stehen lässt."
+          : "Der Eimer am Brunnen steht halb voll. Das Wasser darin ist trüb und leicht bitter.",
+        "Neben der Mauer stehen drei leere Körbe. Auf jedem ist mit Kreide ein Familienname geschrieben. Der Regen hat zwei davon fast ausgelöscht.",
+        "Ein Schwein wühlt zwischen den Rinnen des Platzes. Niemand scheucht es fort. Was es findet, muss später niemand wegtragen.",
+      ],
+      choices,
+    });
+    const gewaehlt = choices[wahl];
+    if (gewaehlt === "Zurück zum Dorf") return rumoren;
+    if (gewaehlt === "Am Brunnen lauschen") {
+      await dorfBrunnen(rt, held);
+      rumoren = true;
+    } else if (gewaehlt === "Den trüben Eimer prüfen" || gewaehlt === "Den Brunnen noch einmal ansehen") {
+      await dorfTruebesWasser(rt, held);
+    } else if (gewaehlt === "Dem Jungen mit der roten Schnur folgen") {
+      await dorfRoteSchnur(rt, held);
+    }
+  }
+  return rumoren;
 }
 
 async function dorfSchmiedeApotheke(rt: Runtime, held: Held) {
-  const choices = ["Zum Schmied", "Zu Witwe Kern"];
-  if (!held.fadenRinne) choices.push("Die Abflussrinne untersuchen (Geschick, leicht)");
-  choices.push("Zurück zum Dorf");
-  const wahl = await rt.present({
-    title: "Schmiede und Apotheke",
-    art: "village",
-    portrait: null,
-    held,
-    lines: [
-      "Zwei Türen nebeneinander. Hinter der einen riecht es nach Eisen, hinter der anderen nach Alkohol und getrockneten Blättern.",
-      "Zwischen den Häusern läuft eine schmale Abflussrinne. Darin schwimmen Kohlenstaub, welke Blätter und ein Stück blutiger Wolle.",
-      "Über der Schmiede hängt ein Hufeisen mit gebrochenem Nagel. Über Kerns Tür hängt nichts. Wer sie braucht, weiß ohnehin, wo sie wohnt.",
-    ],
-    choices,
-  });
-  const gewaehlt = choices[wahl];
-  if (gewaehlt === "Zum Schmied") await dorfSchmied(rt, held);
-  else if (gewaehlt === "Zu Witwe Kern") await dorfWitweKern(rt, held);
-  else if (gewaehlt === "Die Abflussrinne untersuchen (Geschick, leicht)") await rinneUntersuchen(rt, held);
+  while (!tot(held)) {
+    const choices = ["Zum Schmied", "Zu Witwe Kern"];
+    if (!held.fadenRinne) choices.push("Die Abflussrinne untersuchen (Geschick, leicht)");
+    choices.push("Zurück zum Dorf");
+    const wahl = await rt.present({
+      title: "Schmiede und Apotheke",
+      art: "village",
+      portrait: null,
+      held,
+      lines: [
+        "Zwei Türen nebeneinander. Hinter der einen riecht es nach Eisen, hinter der anderen nach Alkohol und getrockneten Blättern.",
+        "Zwischen den Häusern läuft eine schmale Abflussrinne. Darin schwimmen Kohlenstaub, welke Blätter und ein Stück blutiger Wolle.",
+        "Über der Schmiede hängt ein Hufeisen mit gebrochenem Nagel. Über Kerns Tür hängt nichts. Wer sie braucht, weiß ohnehin, wo sie wohnt.",
+      ],
+      choices,
+    });
+    const gewaehlt = choices[wahl];
+    if (gewaehlt === "Zurück zum Dorf") return;
+    if (gewaehlt === "Zum Schmied") await dorfSchmied(rt, held);
+    else if (gewaehlt === "Zu Witwe Kern") await dorfWitweKern(rt, held);
+    else if (gewaehlt === "Die Abflussrinne untersuchen (Geschick, leicht)") await rinneUntersuchen(rt, held);
+  }
 }
 
 async function dorfWitweKern(rt: Runtime, held: Held) {
@@ -1420,27 +1521,38 @@ async function szeneGlockenweg(rt: Runtime, held: Held) {
   if (held.glockeGescheitert) lines.push("Das Seil schwingt noch. Unten im Tal hat man es gehört.");
   await rt.present({ id: "glockenweg", title: "Alter Glockenweg", art: "chapel", portrait: null, held, lines });
 
-  const wahl = await rt.present({
-    title: "Alter Glockenweg",
-    art: "chapel",
-    portrait: null,
-    held,
-    lines: [
-      "Neben der Kapelle wartet eine Botin. Unterhalb des Pfads liegt ein umgestürzter Sack.",
-      "Sanna hält sich mit einer Hand am Mauerwerk fest. Ihre Stiefel sind voller Geröll, und an ihrer Tasche fehlt die Schnalle, die den Brief halten sollte.",
-      "Weiter oben endet der Weg an schwarzem Fels. Dahinter liegt der Steinbruch. Die Luft riecht dort nicht nach Erde, sondern nach altem Feuer.",
-    ],
-    choices: [
-      held.sannaGeholfen || held.sannaAbgewiesen ? "Sanna erneut ansprechen" : "Der Botin Sanna helfen",
-      held.salzGerettet || held.salzLiegenGelassen ? "Jorren erneut ansprechen" : "Den Salzsack im Geröll bergen",
-      held.glockeGestoppt || held.glockeGescheitert ? "Die Kapellenglocke prüfen" : "Die Glocke zum Schweigen bringen",
-      "Nach Lindendorf zurückkehren",
-    ],
-  });
+  while (!tot(held)) {
+    const wahl = await rt.present({
+      title: "Alter Glockenweg",
+      art: "chapel",
+      portrait: null,
+      held,
+      lines: [
+        "Neben der Kapelle wartet eine Botin. Unterhalb des Pfads liegt ein umgestürzter Sack.",
+        "Sanna hält sich mit einer Hand am Mauerwerk fest. Ihre Stiefel sind voller Geröll, und an ihrer Tasche fehlt die Schnalle, die den Brief halten sollte.",
+        "Weiter oben endet der Weg an schwarzem Fels. Dahinter liegt der Steinbruch. Die Luft riecht dort nicht nach Erde, sondern nach altem Feuer.",
+        ...(rufAus(held, "sanna") >= 8 ? ["Sanna hebt die Tasche, bevor du fragst."] : []),
+      ],
+      choices: [
+        held.sannaGeholfen || held.sannaAbgewiesen ? "Sanna erneut ansprechen" : "Der Botin Sanna helfen",
+        held.salzGerettet || held.salzLiegenGelassen ? "Jorren erneut ansprechen" : "Den Salzsack im Geröll bergen",
+        held.glockeGestoppt || held.glockeGescheitert ? "Die Kapellenglocke prüfen" : "Die Glocke zum Schweigen bringen",
+        "Nach Lindendorf zurückkehren",
+      ],
+    });
 
-  if (wahl === 0) await glockenwegSanna(rt, held);
-  else if (wahl === 1) await glockenwegSalz(rt, held);
-  else if (wahl === 2) await glockenwegGlocke(rt, held);
+    if (wahl === 3) {
+      await rt.present({
+        art: "road",
+        held,
+        lines: ["Du steigst nach Lindendorf hinab. Der Hang behält, was du nicht mitgenommen hast."],
+      });
+      return;
+    }
+    if (wahl === 0) await glockenwegSanna(rt, held);
+    else if (wahl === 1) await glockenwegSalz(rt, held);
+    else if (wahl === 2) await glockenwegGlocke(rt, held);
+  }
 }
 
 async function glockenwegSanna(rt: Runtime, held: Held) {
@@ -1467,7 +1579,7 @@ async function glockenwegSanna(rt: Runtime, held: Held) {
   });
   if (wahl === 2) {
     held.sannaAbgewiesen = true;
-    await rt.present({ held, lines: ["Sanna zählt die Schnallen noch einmal. Du steigst allein weiter."] });
+    await rt.present({ held, lines: ["Sanna zählt die Schnallen noch einmal. Du gehst zur Kapelle zurück, nicht den Hang hinab."] });
     return;
   }
   const attribut = wahl === 0 ? "Geschicklichkeit" : "Charisma";

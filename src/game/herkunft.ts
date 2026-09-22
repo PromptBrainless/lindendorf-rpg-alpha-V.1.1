@@ -4,13 +4,21 @@ import {
   BRANDMITTEL,
   GEHEIMINFORMATIONEN,
   HEILTRANK,
+  KOERPER,
+  LEDERMANTEL,
   PROVIANT,
+  RUHIGE_HAND,
+  SCHLICHTER_RING,
+  TRAGEGURT,
+  ZAEHER_NACKEN,
   createHeld,
   type EffektId,
   type Held,
 } from "./types";
 import { zustandFifo, klemme, goldNieNegativ } from "./herkunft-fifo";
 import { urteilAusrichtung, type HerkunftArt } from "./herkunft-urteil";
+import { neueIntroSaat, zieheMitSaat } from "./intro-zug";
+import { leereBeutel } from "./gegenstaende";
 import lagenStimme from "./json/lagen-stimme.json";
 
 export type HerkunftAntwort = {
@@ -57,7 +65,7 @@ export const HERKUNFT_ROH: HerkunftFrage[] = [
         label: "Ich plane den Hinterhalt",
         art: "nutzen",
         gold: 2,
-        beutel: "leer",
+        beutel: undefined,
         effekte: ["konzentriert"],
         mal: "Ich webe eine Falle aus Schatten und Feuer, auch wenn ich dafür mein Leben opfern muss. Das Risiko ist groß, doch das Dunkel verlangt Opfer.",
       },
@@ -65,7 +73,7 @@ export const HERKUNFT_ROH: HerkunftFrage[] = [
         label: "Ich akzeptiere das Schicksal",
         art: "ordnung",
         gold: 1,
-        beutel: "leer",
+        beutel: [KOERPER],
         effekte: ["gelassen"],
         mal: "Ich lege das Schicksal in die kalten Hände des Unvermeidlichen. Das Ende ist unausweichlich, doch ich werde im Schatten des Todes warten, bis es mich holt.",
       },
@@ -93,7 +101,7 @@ export const HERKUNFT_ROH: HerkunftFrage[] = [
         label: "Ich durchtrenne das Herz",
         art: "ordnung",
         gold: 2,
-        beutel: "leer",
+        beutel: [LEDERMANTEL],
         effekte: ["abgebrueht"],
         mal: "Ich führe das Messer, das in meiner Hand liegt, und beende sein Leid. Es ist schwer, doch die Dunkelheit im Innern verlangt nach Erlösung, auch wenn sie blutig sein muss.",
       },
@@ -101,7 +109,7 @@ export const HERKUNFT_ROH: HerkunftFrage[] = [
         label: "Ich nehme ihn mit",
         art: "nutzen",
         lp: -1,
-        beutel: "leer",
+        beutel: [ZAEHER_NACKEN],
         effekte: ["belastet"],
         mal: "Ich hebe ihn auf, trage ihn auf meinen Schultern durch den Staub. Vielleicht verschlingt ihn die Nacht, bevor das Verderben ihn erreicht.",
       },
@@ -120,7 +128,7 @@ export const HERKUNFT_ROH: HerkunftFrage[] = [
         label: "Melde die Tat",
         art: "ordnung",
         gold: 1,
-        beutel: "leer",
+        beutel: [RUHIGE_HAND],
         effekte: ["pflichtbewusst"],
         mal: "Ich kenne den Preis, doch ich spreche den Namen aus. Das Gesetz ist ein Messer, das alles zertrennt, doch die Ordnung muss sein, selbst wenn sie blutet.",
       },
@@ -136,7 +144,7 @@ export const HERKUNFT_ROH: HerkunftFrage[] = [
         label: "Zwinge zu Arbeit",
         art: "nutzen",
         gold: 3,
-        beutel: "leer",
+        beutel: undefined,
         effekte: ["erbarmungslos"],
         mal: "Ich zwinge sie zur Arbeit, die Hände in den Staub. Das Leben ist nur noch ein Kampf im Schatten der Verzweiflung.",
       },
@@ -155,7 +163,7 @@ export const HERKUNFT_ROH: HerkunftFrage[] = [
         label: "Melde ihn",
         art: "ordnung",
         gold: 2,
-        beutel: "leer",
+        beutel: undefined,
         effekte: ["loyal"],
         mal: "Ich nenne die Namen, ziehe die Ketten ab, und lasse das Gesetz der Dunkelheit walten. Der Verräter wird gehängt.",
       },
@@ -172,7 +180,7 @@ export const HERKUNFT_ROH: HerkunftFrage[] = [
         label: "Erpressen",
         art: "nutzen",
         gold: 4,
-        beutel: "leer",
+        beutel: undefined,
         effekte: ["paranoia"],
         mal: "Ich zwinge ihn, für mich zu arbeiten, seine Familie im Blick. Das Gold zerfrisst seine Seele.",
       },
@@ -199,7 +207,7 @@ export const HERKUNFT_ROH: HerkunftFrage[] = [
       {
         label: "Weiterfahren",
         art: "ordnung",
-        beutel: "leer",
+        beutel: undefined,
         effekte: ["zielstrebig"],
         mal: "Ich lasse das Brot im Korb, ignoriere den Hunger, und hoffe auf eine bessere Zukunft. Der Schatten des Todes wächst im Dämmerlicht.",
       },
@@ -208,7 +216,7 @@ export const HERKUNFT_ROH: HerkunftFrage[] = [
         art: "nutzen",
         lp: -2,
         gold: -1,
-        beutel: [PROVIANT],
+        beutel: [PROVIANT, TRAGEGURT],
         effekte: ["ueberlastet"],
         mal: "Ich hebe sie auf, trage sie durch den Staub, im Hoffen, dass das Leben noch eine Chance hat.",
       },
@@ -235,7 +243,7 @@ export const HERKUNFT_ROH: HerkunftFrage[] = [
       {
         label: "Lass sie sterben",
         art: "ordnung",
-        beutel: "leer",
+        beutel: undefined,
         effekte: ["kaltherzig"],
         mal: "Ich lasse die Tür geschlossen, ignoriere das Leid, und hoffe, dass das Feuer alles verschlingt.",
       },
@@ -278,7 +286,7 @@ export const HERKUNFT_ROH: HerkunftFrage[] = [
         label: "Töten",
         art: "ordnung",
         gold: 1,
-        beutel: "leer",
+        beutel: undefined,
         effekte: ["traumatisiert"],
         mal: "Ich treibe das Messer in seine Brust, bringe das Ende herbei. Das Schweigen wird zum letzten Urteil.",
       },
@@ -297,7 +305,7 @@ export const HERKUNFT_ROH: HerkunftFrage[] = [
         label: "Dem Stärkeren geben",
         art: "ordnung",
         gold: 2,
-        beutel: "leer",
+        beutel: undefined,
         effekte: ["kalkulierend"],
         mal: "Ich gebe die letzte Klinge dem, der noch steht, im Blick das Überleben, während die Dunkelheit im Schatten lauert.",
       },
@@ -313,7 +321,7 @@ export const HERKUNFT_ROH: HerkunftFrage[] = [
       {
         label: "Zerbrechen",
         art: "nutzen",
-        beutel: "leer",
+        beutel: undefined,
         effekte: ["frustriert"],
         mal: "Ich zerbreche die Waffe, das letzte Streben nach Leben im Staub. Vielleicht verschwindet das Dunkel im Gras.",
       },
@@ -340,7 +348,7 @@ export const HERKUNFT_ROH: HerkunftFrage[] = [
       {
         label: "Abweisen",
         art: "ordnung",
-        beutel: "leer",
+        beutel: undefined,
         effekte: ["abgeschottet"],
         mal: "Ich verschließe das Tor, im Schatten der Pflicht. Das Leid bleibt draußen. Das Gesetz ist schwer, doch notwendig.",
       },
@@ -349,7 +357,7 @@ export const HERKUNFT_ROH: HerkunftFrage[] = [
         art: "nutzen",
         lp: -1,
         gold: -1,
-        beutel: "leer",
+        beutel: undefined,
         effekte: ["selektiv"],
         mal: "Ich lasse nur die Frauen und Kinder hinein, die Männer draußen im Schatten. Das ist Gerechtigkeit in einer Welt voller Dunkelheit.",
       },
@@ -376,7 +384,7 @@ export const HERKUNFT_ROH: HerkunftFrage[] = [
       {
         label: "Den Verwundeten lassen",
         art: "ordnung",
-        beutel: "leer",
+        beutel: [SCHLICHTER_RING],
         effekte: ["schuldbeladen"],
         mal: "Ich lasse ihn auf den Knien, gebe ihm den letzten Atemzug. Der Schatten verschlingt ihn, während die Flucht im Nebel verschwindet.",
       },
@@ -384,7 +392,7 @@ export const HERKUNFT_ROH: HerkunftFrage[] = [
         label: "Auslosen",
         art: "nutzen",
         gold: 1,
-        beutel: "leer",
+        beutel: undefined,
         effekte: ["pragmatisch"],
         mal: "Das Los entscheidet, wer bleibt. Ich ziehe den Strick, während die Angst in meinen Knochen sitzt und der Schatten naht.",
       },
@@ -415,6 +423,21 @@ function lageAusStimme(frage: HerkunftFrage): HerkunftFrage {
 }
 
 export const HERKUNFT_FRAGEN: HerkunftFrage[] = HERKUNFT_ROH.map(lageAusStimme);
+
+export const LAGE_ZUG_ANZAHL = 3;
+
+export function lageIds(fragen: HerkunftFrage[] = HERKUNFT_FRAGEN): string[] {
+  return fragen.map((frage) => frage.id);
+}
+
+export function zieheLagen(fragen: HerkunftFrage[], saat: number, anzahl = LAGE_ZUG_ANZAHL): HerkunftFrage[] {
+  const ids = zieheMitSaat(lageIds(fragen), anzahl, saat);
+  return ids.map((id) => fragen.find((frage) => frage.id === id)).filter((frage): frage is HerkunftFrage => Boolean(frage));
+}
+
+export function neueLageSaat(name: string): number {
+  return neueIntroSaat(name);
+}
 
 export type HerkunftPatch = {
   titel?: string;
@@ -454,7 +477,7 @@ export function legeHerkunftAufHeld(held: Held, antwort: HerkunftAntwort, maxMal
   held.lp = klemme(held.lp + (antwort.lp ?? 0), 4, 10);
   if (antwort.lpFix != null) held.lp = antwort.lpFix;
   held.gold = goldNieNegativ(held.gold, antwort.gold ?? 0);
-  if (antwort.beutel === "leer") held.inventar = [];
+  if (antwort.beutel === "leer") held.inventar = leereBeutel(held.inventar);
   else if (antwort.beutel) {
     for (const ding of antwort.beutel) {
       if (!held.inventar.includes(ding)) held.inventar.push(ding);
@@ -486,8 +509,15 @@ export function wendeHerkunftAn(
   return { titel: frage.titel, antwort };
 }
 
-export function baueHeldAusHerkunft(name: string, gewaehlt: number[], fragen: HerkunftFrage[] = HERKUNFT_FRAGEN): Held {
+export function baueHeldAusHerkunft(
+  name: string,
+  gewaehlt: number[],
+  fragen: HerkunftFrage[] = HERKUNFT_FRAGEN,
+  saat = 0,
+): Held {
   const held = createHeld(name, 10, 10, 10);
+  held.lagenZug = fragen.map((frage) => frage.id);
+  held.lagenSaat = saat;
   const male: string[] = [];
   const arten: HerkunftArt[] = [];
   gewaehlt.forEach((index, frageIndex) => {

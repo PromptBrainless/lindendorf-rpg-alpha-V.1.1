@@ -4,6 +4,10 @@ const BILD_ALIAS: Record<string, string> = {
   "sanna-botin": "sanna-die-botin",
   "am-brunnen": "brunnen-hub",
   "intro-fremder-am-weg": "der-fremde-am-weg",
+  "intro-siegel": "rotes_siegel_gesehen",
+  "intro-graben": "graben",
+  "intro-rauch": "intro-tal",
+  "intro-kinderschuh": "intro-tal",
 };
 
 /** Eigenes Bühnenbild, unabhängig vom ArtKey. */

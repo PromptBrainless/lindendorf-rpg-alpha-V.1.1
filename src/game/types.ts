@@ -14,6 +14,12 @@ export const BRANDMITTEL = "Brandmittel";
 export const GEHEIMINFORMATIONEN = "Geheiminformationen";
 export const AMULETT = "Amulett";
 export const ARTEFAKT = "Artefakt";
+export const LEDERMANTEL = "Hübscher Ledermantel";
+export const KOERPER = "Körperliche Veranlagung";
+export const RUHIGE_HAND = "Ruhige Hand";
+export const ZAEHER_NACKEN = "Zäher Nacken";
+export const TRAGEGURT = "Tragegurt";
+export const SCHLICHTER_RING = "Schlichter Ring";
 
 export type { Entscheidung };
 export type Loesungsweg =
@@ -205,6 +211,8 @@ export type Held = {
   mal: string;
   entscheidungen: Entscheidung[];
   karten: string[];
+  lagenZug: string[];
+  lagenSaat: number;
   tageszeit: Tageszeit;
   spieltag: number;
 };
@@ -336,6 +344,8 @@ export function createHeld(name: string, staerke: number, geschick: number, char
     mal: "",
     entscheidungen: [],
     karten: [],
+    lagenZug: [],
+    lagenSaat: 0,
     tageszeit: "daemmerung",
     spieltag: 1,
   };
@@ -348,6 +358,8 @@ export function cloneHeld(held: Held): Held {
     effekte: [...(held.effekte ?? [])],
     entscheidungen: [...(held.entscheidungen ?? [])],
     karten: [...(held.karten ?? [])],
+    lagenZug: [...(held.lagenZug ?? [])],
+    lagenSaat: held.lagenSaat ?? 0,
   };
 }
 

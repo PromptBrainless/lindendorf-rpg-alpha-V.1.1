@@ -54,6 +54,9 @@ function hydrateHeld(held: Held): Held {
     effekte: [...(held.effekte ?? [])].filter(istEffektId),
     mal: held.mal ?? "",
     entscheidungen: leseEntscheidungen(held),
+    karten: [...(held.karten ?? [])],
+    lagenZug: [...(held.lagenZug ?? [])],
+    lagenSaat: held.lagenSaat ?? 0,
   };
 }
 
