@@ -22,16 +22,15 @@ Danach können die Dateien aus diesem Ordner 1:1 als Wiki-Seiten übernommen wer
 - [Stil](Stil.md)
 - [Quest-Ankunft](Quest-Ankunft.md)
 
-## Charakterregeln
+## Charaktere und soziale Rollen
 
 - [Klassen und Karrieren – Übersicht](01-klassen-und-karrieren-uebersicht.md)
+- [Klassen und soziale Milieus](Lindendorf-Klassen-und-Milieus.md)
+- [Charaktererschaffung](Lindendorf-Charaktererschaffung.md)
+- [Berufe und soziale Rollen](Lindendorf-Berufe-und-soziale-Rollen.md)
+- [Karrieren als Quest- und Informationszugänge](Lindendorf-Karrieren-als-Questzugaenge.md)
+- [Karriere: vollständiger Arbeitsstand](Lindendorf-Karriere-Arbeitsstand.md)
 - [Status-System](02-status-system.md)
 - [Karrieren-Liste](03-karrieren-liste.md)
-- [Akademiker](04-akademiker.md)
-- [Bürger](05-buerger.md)
-- [Flussvolk](06-flussvolk.md)
-- [Freisassen](07-freisassen.md)
-- [Gesetzlose](08-gesetzlose.md)
-- [Höflinge](09-hoeflinge.md)
-- [Krieger](10-krieger.md)
-- [Landvolk](11-landvolk.md)
+- [Schicksal, Glück und Überleben](Lindendorf-Schicksal-Glueck-und-Ueberleben.md)
+- [Schicksal und Glück: vollständiger Arbeitsstand](Lindendorf-Schicksal-und-Glueck-Arbeitsstand.md)
