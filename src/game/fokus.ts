@@ -40,7 +40,7 @@ const END_SZENE: Record<string, Record<string, string>> = {
   },
 };
 
-const STAMM_WISSEN: KnowledgeKey[] = ["dorf_ankunft", "artefakt_gesehen"];
+const STAMM_WISSEN: KnowledgeKey[] = [];
 
 export function neuesWissen(vorher: Held | null | undefined, jetzt: Held): KnowledgeKey[] {
   const alt = vorher ? deriveKnowledge(vorher) : new Set<KnowledgeKey>(STAMM_WISSEN);

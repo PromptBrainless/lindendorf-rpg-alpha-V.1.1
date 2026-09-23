@@ -53,19 +53,43 @@ export const KNOWLEDGE_META: Record<KnowledgeKey, { typ: WissensTyp; label: stri
 
 export type KnowledgeState = ReadonlySet<KnowledgeKey>;
 
+function warDa(held: Held, ...ids: string[]): boolean {
+  const karten = held.karten ?? [];
+  return ids.some((id) => karten.includes(id));
+}
+
 export function deriveKnowledge(held: Held): KnowledgeState {
-  const knowledge = new Set<KnowledgeKey>(["dorf_ankunft", "artefakt_gesehen"]);
-  if (held.artefaktErhalten) knowledge.add("artefakt_erhalten");
-  if (held.holmBesucht) {
-    knowledge.add("holm_besucht");
-    knowledge.add("banditen_bekannt");
-    knowledge.add("rotes_siegel_gesehen");
-    knowledge.add("muehle_stillstand");
+  const knowledge = new Set<KnowledgeKey>();
+  const angekommen =
+    warDa(held, "intro-ankunft", "dorf-platz", "intro-lindendorf") ||
+    held.holmBesucht ||
+    held.muehleBesucht ||
+    held.gasseBesucht ||
+    held.auftragErhalten;
+  if (angekommen) knowledge.add("dorf_ankunft");
+  if (warDa(held, "intro-fremder-am-weg") || held.artefaktErhalten || held.artefaktVerloren || Boolean(held.artefaktWeg) || angekommen) {
+    knowledge.add("artefakt_gesehen");
   }
-  if (held.muehleBesucht) knowledge.add("muehle_stillstand");
+  if (held.artefaktErhalten) knowledge.add("artefakt_erhalten");
+  if (held.holmBesucht) knowledge.add("holm_besucht");
+  if (held.holmBesucht || held.auftragErhalten || warDa(held, "wald", "lager-hub") || held.lagerGeloest) {
+    knowledge.add("banditen_bekannt");
+  }
+  if (held.holmBesucht || held.holmSiegelGefunden || held.holmSiegelVerschwiegen) knowledge.add("rotes_siegel_gesehen");
+  if (held.holmBesucht || held.muehleBesucht) knowledge.add("muehle_stillstand");
   if (held.auftragErhalten) knowledge.add("auftrag_erhalten");
-  if (held.sannaGeholfen || held.mehlsackGefunden || held.holmSiegelGefunden || held.artefaktErhalten) {
+  if (held.artefaktErhalten || held.holmSiegelGefunden || held.mehlsackGefunden) {
     knowledge.add("hang_hinweis");
+  }
+  if (
+    warDa(held, "glockenweg", "sanna-die-botin", "jorren-im-geroell", "die-kapellenglocke") ||
+    held.sannaGeholfen ||
+    held.sannaAbgewiesen ||
+    held.salzGerettet ||
+    held.salzLiegenGelassen ||
+    held.glockeGestoppt ||
+    held.glockeGescheitert
+  ) {
     knowledge.add("glockenweg_bekannt");
   }
   if (held.glockeGestoppt) knowledge.add("glocke_vorteil");
@@ -75,15 +99,12 @@ export function deriveKnowledge(held: Held): KnowledgeState {
   if (held.truebungBestaetigt || held.spurAmBrunnen) knowledge.add("wasser_truebung");
   if (held.grovinGenannt || held.grovinsGrund || held.loesungswegBrunnen) knowledge.add("grovin_zisterne");
   if (held.dennekEntlarvt) knowledge.add("dennek_schuld");
-  if (
-    (held.muehleBesucht || held.loesungswegMuehle || held.holmBesucht) &&
-    (held.truebungBestaetigt || held.loesungswegBrunnen)
-  ) {
+  if ((held.muehleBesucht || held.loesungswegMuehle) && (held.truebungBestaetigt || held.loesungswegBrunnen)) {
     knowledge.add("versorgung_muster");
   }
   if (held.gasseBesucht || held.loesungswegGasse) knowledge.add("gasse_leer");
-  if (held.gasseGeschichteGehoert || held.vahlGrossvater || held.loesungswegGasse) knowledge.add("kesseljahr");
-  if (held.ilsesAufzeichnungenGefunden || held.loesungswegGasse) knowledge.add("ilses_liste");
+  if (held.gasseGeschichteGehoert || held.vahlGrossvater) knowledge.add("kesseljahr");
+  if (held.ilsesAufzeichnungenGefunden) knowledge.add("ilses_liste");
   if (held.fadenGeschlossen || held.ungerufenerNameGeloest || held.koehlerBefragt || held.schnurLetzterKnoten) {
     knowledge.add("ungerufener_name");
   }

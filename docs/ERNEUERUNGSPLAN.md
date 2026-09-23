@@ -1,5 +1,15 @@
 # Lindendorf — Erneuerungsplan
 
+**Nicht der Auftrag der nächsten Sitzung.** Technisches Archiv ab 20. September 2026.
+Was jetzt gilt: `AGENTS.project.md` und `docs/KONTEXT_NEUES_FENSTER.md`.
+Nächster Schritt steht dort nicht. Der Nutzer nennt ihn.
+
+Darunter der Plan, wie er am 20. September galt.
+
+---
+
+# Lindendorf — Erneuerungsplan
+
 **Gültig ab:** 20. September 2026  
 **Repo:** [PromptBrainless/SpielVersion1.0](https://github.com/PromptBrainless/SpielVersion1.0)  
 **Rohfassung:** `docs/lindendorf-erweiterung-plan.md`  

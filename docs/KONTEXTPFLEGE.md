@@ -2,7 +2,9 @@
 
 ## Zweck
 
-`PROJEKTKONTEXT.md` ist der kompakte Übergabepunkt. Die technische Reihenfolge steht in `docs/ERNEUERUNGSPLAN.md`. Der Kontext ersetzt nicht das Register und enthält keine Gesprächsprotokolle.
+Eine neue Sitzung liest zuerst `AGENTS.project.md`, dann `docs/KONTEXT_NEUES_FENSTER.md`.
+`PROJEKTKONTEXT.md` wiederholt den Stand und vergibt keinen Auftrag.
+`docs/UMBAU_UMGEBUNG.md` ist eine offene Liste. Nummern nicht von allein umsetzen.
 
 ## Aktualisierungspunkte
 
@@ -18,7 +20,7 @@ Der Text bleibt kurz und entscheidungsorientiert. Bereits stabile Regeln werden 
 
 ## Sitzungsbeginn
 
-Zu Beginn einer neuen Sitzung wird zuerst `PROJEKTKONTEXT.md` gelesen. Danach werden nur die dort genannten relevanten Dateien geprüft. Ein vollständiges erneutes Lesen des gesamten Skripts ist nicht nötig, solange der Snapshot aktuell ist.
+Zu Beginn einer neuen Sitzung werden `AGENTS.project.md` und `docs/KONTEXT_NEUES_FENSTER.md` gelesen. Danach nur die dort genannten Dateien. Nicht das ganze Skript. Nicht den Erneuerungsplan als Auftrag.
 
 ## Sitzungsende
 

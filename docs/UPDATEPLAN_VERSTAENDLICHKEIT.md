@@ -1,6 +1,8 @@
 # Verständlichkeits-Updateplan — Status
 
-**Arbeitsreihenfolge:** `docs/ERNEUERUNGSPLAN.md`.
+**Kein Auftrag.** Arbeitsreihenfolge nicht mehr hier und nicht mehr „vor Block A“.
+Gilt: `AGENTS.project.md`.
+
 Die Maßnahmen unten sind inhaltliche Regeln, kein Sprint mehr.
 
 ## Erledigt, soweit der Code das hergibt

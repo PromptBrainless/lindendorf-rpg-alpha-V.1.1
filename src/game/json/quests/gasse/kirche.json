@@ -26,7 +26,9 @@
       "lines": [
         "Hinter der Gerberei liegt eine Gasse, die niemand mehr als Weg benutzt. Die Bretter an den Fenstern sind älter als die Ausreden, warum niemand dort wohnt.",
         "Fenn bleibt an der Mauer. Vahl sitzt irgendwo im Rathaus und rechnet mit Baumannschaft. Die Kirche hält die Schwelle nass.",
-        "In einer Woche kommen Bretter, sagt man. Bretter über eine Gasse sind keine Reparatur. Sie sind ein Beschluss."
+        "In einer Woche kommen Bretter, sagt man. Bretter über eine Gasse sind keine Reparatur. Sie sind ein Beschluss.",
+        "Die Gasse hinter der Gerberei ist leer, und die Leere ist gepflegt. Kein Karren, kein Kind, keine Wäsche.",
+        "Fenn bleibt an der Kirchmauer. Er sieht die Gasse an, als hätte sie einmal einen Namen gehabt, den man nicht mehr laut sagt."
       ],
       "choices": [
         "Bei Fenn an der Kirchmauer bleiben",
@@ -43,7 +45,9 @@
       "lines": [
         "Fenn ist Teil der Mauer, ein Schatten unter Schatten, den man grüßt, ohne ihn anzuschauen. Heute nicht. Heute sieht er zuerst.",
         "In der Tasche des geflickten Mantels hält er ein morsches Stück Lattenzaun. Zehn Winter haben das Holz glattgeschliffen. Die Nagellöcher sind Dellen, aber wer hinsieht, erkennt noch den rechten Winkel.",
-        "Er wartet nicht auf eine Antwort. Die Hand in der Tasche bleibt in Bewegung, als zähle sie etwas, das niemand mehr zählen will."
+        "Er wartet nicht auf eine Antwort. Die Hand in der Tasche bleibt in Bewegung, als zähle sie etwas, das niemand mehr zählen will.",
+        "Fenn sitzt an der Kirchmauer, als gehöre der Stein ihm mehr als das Dorf. In der Tasche klappert Holz, kein Geld.",
+        "Er sieht die leere Gasse an und dich danach. Die Reihenfolge ist die Warnung."
       ],
       "choices": [
         "Weiter"
@@ -55,10 +59,10 @@
       "art": "chapel",
       "portrait": null,
       "lines": [
-        "Du hast deinen Platz so gewählt, dass die Kirchentür dich nicht trifft, wenn sie aufschlägt — eine Berechnung, die nur ein Mensch anstellt, der diesen Platz nicht zum ersten Mal einnimmt. Die Dämmerung liegt schwer auf dem nassen Dach der Steinkapelle, und der Geruch von nassem Stein und fauligem Moos drückt dir in die Nase, kalt, erdig, mit dem metallischen Beigeschmack von altem Eisen im Mörtel. Wasser sickert in dünnen Fäden über die Kante und tropft neben deinem Ohr auf den Boden, regelmäßig wie ein schwacher Puls.",
-        "Der Stein unter dir ist abgewetzt zu einer sanften Mulde, genau von der Form, die ein Körper über viele, viele Winter hinterlässt. Dein Gewicht sinkt hinein, die Kälte greift durch Hose und Haut bis in die Hüfte, zäh und bleiern, und die Mulde nimmt dich auf, als hätte sie schon lange auf genau dieses Maß gewartet. Die Kirchmauer im Rücken ist rau, fleckig von dunklen Flechten, die sich wie vertrocknete Wunden über die Blöcke ziehen; jeder Atemzug reibt deine Schultern daran, und du spürst das feine Abschaben, das Gewicht deines eigenen Körpers, das den Stein weiter aushöhlt.",
-        "Wer hier sitzt, sitzt nicht zum ersten Mal, und er sitzt auch nicht zum zehnten. Die Kälte hat sich in die Gelenke gesetzt, ein dumpfer Druck hinter den Knien, und der nasse Geruch steigt weiter, mischt sich mit dem schwachen Hauch von verrottetem Laub, der unter der Mauer hervorquillt.",
-        "„Weißt du, warum dort niemand mehr geht?“ Du stellst die Frage, ohne eine Antwort zu erwarten, als wäre die Frage selbst schon die halbe Last, die du abzugeben hattest. Der Dampf deines Atems hängt einen Moment vor dem Gesicht, dann reißt ihn die Dämmerung weg, und du bleibst in der Mulde sitzen, schwer, kalt, mit dem Stein, der dich hält."
+        "Fenn hat seinen Platz so gewählt, dass die Kirchentür ihn nicht trifft, wenn sie aufschlägt — eine Berechnung, die nur ein Mensch anstellt, der diesen Platz nicht zum ersten Mal einnimmt. Die Dämmerung liegt schwer auf dem nassen Dach der Steinkapelle. Es riecht nach nassem Stein und fauligem Moos, kalt, erdig, mit dem metallischen Beigeschmack von altem Eisen im Mörtel. Wasser sickert über die Kante und tropft neben seinem Ohr auf den Boden, regelmäßig wie ein schwacher Puls.",
+        "Der Stein unter ihm ist abgewetzt zu einer sanften Mulde, genau von der Form, die ein Körper über viele Winter hinterlässt. Sein Gewicht sinkt hinein. Die Kälte greift durch den Mantel bis in die Hüfte, und die Mulde nimmt ihn auf, als hätte sie auf genau dieses Maß gewartet. Die Kirchmauer in seinem Rücken ist rau, fleckig von dunklen Flechten. Wer hier sitzt, sitzt nicht zum ersten Mal und nicht zum zehnten.",
+        "In der Tasche des geflickten Mantels hält er ein morsches Stück Lattenzaun. Zehn Winter haben das Holz glattgeschliffen. Die Nagellöcher sind Dellen. Die Hand bleibt in Bewegung, als zähle sie etwas, das niemand mehr zählen will. Er ist Fenn, der Bettler an der Kirchmauer, nicht der Mann am Brunnen.",
+        "„Weißt du, warum dort niemand mehr geht?“ Er stellt die Frage, ohne eine Antwort zu erwarten, als wäre die Frage selbst schon die halbe Last. Er wartet, ob du zuhörst oder drängst. Das Jahr, das die Gasse trägt, gibt er nicht her, solange du die Antwort schon im Mund hast."
       ],
       "choices": [
         "Warten und zuhören",
@@ -74,7 +78,9 @@
       "lines": [
         "Vahls Stube im Rathaus ist wärmer als der Platz. Die Wärme kommt von einem Ofen, der mehr Holz verbraucht, als ein Ratsherr zugeben würde.",
         "Auf dem Tisch liegen Pläne, sauber, ohne die Gasse, als sei sie schon wegradiert. Ein Lineal liegt quer über Namen, die nicht mehr in der Tusche stehen.",
-        "Die Luft riecht nach Siegellack. Nicht nach dem Wachs vom Hang. Nach dem, das Beschlüsse hält, bis niemand mehr widerspricht."
+        "Die Luft riecht nach Siegellack. Nicht nach dem Wachs vom Hang. Nach dem, das Beschlüsse hält, bis niemand mehr widerspricht.",
+        "Vahls Stube riecht nach Wachs und nach einem Ofen, der nur für ihn brennt. Der Ring an seiner Hand ist älter als das Amt.",
+        "Er bietet dir den Stuhl an, der zur Tür zeigt. So sieht er, wer kommt, bevor du siehst, was auf dem Tisch liegt."
       ],
       "choices": [
         "Weiter"
@@ -88,7 +94,9 @@
       "lines": [
         "Vahl lächelt, wie man lächelt, wenn man den Satz schon fertig hat. „Hinter der Gerberei liegt Ödland. Ödland wird nützlich, oder es bleibt eine offene Rechnung.“",
         "Er bietet dir keinen Stuhl. Stühle sind für Leute, die bleiben sollen. Du sollst verstehen und gehen.",
-        "„Das Kesseljahr ist vorbei“, sagt er. „Wer es ausgräbt, gräbt für sich, nicht fürs Dorf.“ Die Hände bleiben ruhig. Ruhige Hände haben hier oft mehr getan als laute."
+        "„Das Kesseljahr ist vorbei“, sagt er. „Wer es ausgräbt, gräbt für sich, nicht fürs Dorf.“ Die Hände bleiben ruhig. Ruhige Hände haben hier oft mehr getan als laute.",
+        "Vahl lächelt, wie man ein Amt lächelt. Der Ring seines Großvaters dreht sich, wenn von Baugrund die Rede ist.",
+        "Er fragt nicht, was du in der Gasse gesehen hast. Er wartet, bis du es selbst auf den Tisch legst."
       ],
       "choices": [
         "Weiter"

@@ -165,6 +165,8 @@ async function dennekGespraech(rt: Runtime, held: Held) {
 
   const lines = [
     "Dennek rührt weiter im Eimer, mechanisch, ohne Überzeugung, und das Wasser wird dadurch um keinen Deut klarer, was ihm selbst nicht zu entgehen scheint, auch wenn er die Bewegung nicht einstellt. „Trockenes Jahr“, sagt er, mit der glatten Sicherheit eines Mannes, der diesen Satz schon oft geübt hat. „Der Brunnen gibt, was er kann. Mehr zu verlangen wäre schon Klage, und wofür sollte man klagen, wenn die Erde selbst knapp ist?“",
+    "Der Stock kreist immer an derselben Stelle vorbei. Die Fuge rechts am Rand bleibt unberührt. Das Wasser, das er aufwühlt, fällt in sich zurück und bleibt grau.",
+    "An seinen Stiefeln klebt hellerer Lehm als auf dem Platz. Der Weg zum Wald ist kürzer, als sein Satz vom trockenen Jahr behauptet.",
   ];
   if (held.truebungBestaetigt) {
     lines.push(
@@ -316,24 +318,30 @@ async function ablaufgraben(rt: Runtime, held: Held) {
   }
 
   await rt.present({
+    id: "ablaufgraben",
     title: "Ablaufgraben",
     art: "ditch",
     portrait: null,
     held,
     lines: [
-      "Der Graben endet an einer halb überwucherten Zisterne, deren Mauerwerk zwar alt ist, dessen Fugen jedoch, seltsam genug, sauber und gepflegt wirken.",
-      "Jemand, das wird schnell klar, hält dieses Bauwerk sorgfältig instand, während im Dorf dahinter die Kinder husten.",
+      "Der Graben läuft gerade. Zu gerade für Wasser, das sich seinen Weg sucht. An den Rändern steht das Gras kürzer, niedergetreten, nicht vom Regen.",
+      "Der Boden darin ist glatt. Jemand hat hier mehr als einmal mit einem Eimer entlanggeschliffen. Die Ränder tragen Kratzspuren, die nicht von Wurzeln stammen.",
+      "Er endet an einer halb überwucherten Zisterne. Das Mauerwerk ist alt. Die Fugen sind es nicht. Jemand hat sie nachgestrichen, hell, noch nicht vom Moos genommen.",
+      "Im Dorf husten die Kinder. Hier hält jemand ein Becken instand, das sie nicht zu sehen bekommen.",
     ],
   });
 
   const sneakSchwer = held.spurAmBrunnen ? MITTEL : SCHWER;
   const weg = await rt.present({
+    id: "an-der-zisterne",
     title: "An der Zisterne",
     art: "ditch",
     portrait: null,
     held,
     lines: [
-      "Dorniges Gestrüpp steht dicht vor dem steinernen Becken, ein natürlicher Wall. Dahinter, kaum sichtbar durch die Zweige, bewegt sich eine flache Hand über Wasser, das reiner und klarer ist als alles, was man seit Tagen im Dorf gesehen hat.",
+      "Dornen stehen dicht vor dem Becken. Nicht gewachsen, gelegt. Die Zweige sind an den Schnittstellen hell.",
+      "Dahinter bewegt sich eine Hand über Wasser. Flach. Ohne Eile. Das Wasser ist klar bis auf den Stein. Im Dorf hat der Eimer diese Farbe seit Tagen nicht mehr.",
+      "Der Geruch ist Stein und nasses Holz, nicht Eisen. Wer hier schöpft, schöpft nicht aus dem Brunnen.",
     ],
     choices: [
       "Sich durch das Gestrüpp zwängen (Stärke, leicht)",
@@ -621,13 +629,15 @@ async function grovinZisterne(rt: Runtime, held: Held, bewaffnet: boolean) {
 async function brunnenEnde(rt: Runtime, held: Held) {
   if (held.loesungswegBrunnen === "bestochen") {
     await rt.present({
+      id: "zwei-brunnen-ein-dorf",
       title: "Zwei Brunnen, ein Dorf",
       art: "well",
       portrait: "kern",
       held,
       lines: [
-        "Das Wasser wird spürbar klarer, gewiss, doch nie wirklich genug, um für alle zu reichen. Kern braut weiterhin dieselbe Mischung wie zuvor, nur seltener nun.",
-        "Man selbst trägt das Wissen um das, was wirklich geschah, fortan ganz allein, ohne es mit irgendwem teilen zu können.",
+        "Das Wasser wird spürbar klarer. Es reicht länger. Es reicht nicht für alle. Kern braut dieselbe Mischung wie zuvor, nur seltener, und stellt die Flaschen enger, damit die Lücke nicht auffällt.",
+        "Der Eimer am Platz ist nicht mehr grau. Er ist auch nicht klar. Wer zuerst kommt, trinkt. Wer später kommt, zählt die Ringe an der Wand.",
+        "Du trägst, was wirklich geschah, allein. Dennek rührt nicht mehr. Er spricht auch nicht.",
       ],
     });
     return;
@@ -635,13 +645,14 @@ async function brunnenEnde(rt: Runtime, held: Held) {
 
   if (held.loesungswegBrunnen === "zerstoert" && !held.dennekEntlarvt) {
     await rt.present({
+      id: "wasser-mit-einem-riss",
       title: "Wasser mit einem Riss",
       art: "well",
       portrait: null,
       held,
       lines: [
-        "Das Wasser fließt zwar wieder, doch Grovin ist verschwunden, nicht verschwunden genug, um die Sache endgültig zu beenden.",
-        "In manchen Nächten hört man Schritte am Waldrand, die niemand im Dorf laut beim Namen nennen möchte, aus Furcht, damit etwas heraufzubeschwören, das besser dort bliebe, wo es hingehört.",
+        "Das Wasser fließt wieder. Der Eimer schlägt gegen den Stein, und der Klang ist der alte. Grovin ist fort, nicht fort genug.",
+        "Am Waldrand sind Schritte, nachts, wenn der Wind vom Osten kommt. Niemand im Dorf sagt den Namen dazu. Die Zisterne steht noch. Ihre Fugen auch.",
       ],
     });
     return;
@@ -655,6 +666,7 @@ async function brunnenEnde(rt: Runtime, held: Held) {
   }
 
   await rt.present({
+    id: "klares-wasser",
     title: "Klares Wasser",
     art: "well",
     portrait: "kern",

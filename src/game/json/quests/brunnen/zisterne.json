@@ -10,7 +10,11 @@
       "art": "ditch",
       "portrait": null,
       "lines": [
-        "Dorniges Gestrüpp steht dicht vor dem steinernen Becken, ein natürlicher Wall. Dahinter, kaum sichtbar durch die Zweige, bewegt sich eine flache Hand über Wasser, das reiner und klarer ist als alles, was man seit Tagen im Dorf gesehen hat."
+        "Dornen stehen dicht vor dem Becken. Nicht gewachsen, gelegt. Die Zweige sind an den Schnittstellen hell.",
+        "Dahinter bewegt sich eine Hand über Wasser. Flach. Ohne Eile. Das Wasser ist klar bis auf den Stein. Im Dorf hat der Eimer diese Farbe seit Tagen nicht mehr.",
+        "Der Geruch ist Stein und nasses Holz, nicht Eisen. Wer hier schöpft, schöpft nicht aus dem Brunnen.",
+        "Die Dornen sind gelegt, nicht gewachsen. Die Schnittstellen sind hell.",
+        "Hinter ihnen liegt eine Hand auf Wasser, das klarer ist als der Eimer im Dorf. Es riecht nach Stein, nicht nach Eisen."
       ],
       "choices": [
         "Sich durch das Gestrüpp zwängen (Stärke, leicht)",
@@ -25,7 +29,10 @@
       "portrait": "grovin",
       "lines": [
         "Das Wasser in der Zisterne ist klar bis auf den steinigen Grund. Grovin blickt zuerst hinunter darauf, dann erst zu dir hinüber.",
-        "„Ich habe dem Dorf diesen Brunnen gebaut“, sagt er, „und es hat mich dafür nicht bezahlt. Also nimmt sich das Wasser, was mir zusteht, und ich helfe ihm dabei nach.“"
+        "„Ich habe dem Dorf diesen Brunnen gebaut“, sagt er, „und es hat mich dafür nicht bezahlt. Also nimmt sich das Wasser, was mir zusteht, und ich helfe ihm dabei nach.“",
+        "Das Becken ist bis auf den Stein klar. Grovins Hand bleibt auf dem Wasser, als lese er daran, ob du fragst oder nimmst.",
+        "Die Grabegabel, wenn sie zwischen euch steht, tropft nicht vom Regen.",
+        "Er sagt den Satz über den unbezahlten Brunnen ohne Eile. Die Zisterne hat Zeit. Das Dorf nicht."
       ],
       "choices": [
         "Die Sperre gewaltsam brechen (Stärke, mittel)",

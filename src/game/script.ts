@@ -958,6 +958,7 @@ async function dorfWitweKern(rt: Runtime, held: Held) {
       return;
     }
     await rt.present({
+      id: "bei-witwe-kern-dorf",
       title: "Bei Witwe Kern",
       art: "apothecary",
       portrait: "kern",
@@ -968,6 +969,7 @@ async function dorfWitweKern(rt: Runtime, held: Held) {
   }
 
   const wahl = await rt.present({
+    id: "bei-witwe-kern-dorf",
     title: "Bei Witwe Kern",
     art: "apothecary",
     portrait: "kern",
@@ -1000,6 +1002,7 @@ async function dorfWitweKern(rt: Runtime, held: Held) {
   if (ergebnis.erfolg) {
     held.kernGeholfen = true;
     await rt.present({
+      id: "bei-witwe-kern-dorf",
       title: "Bei Witwe Kern",
       art: "apothecary",
       portrait: "kern",
@@ -1017,6 +1020,7 @@ async function dorfWitweKern(rt: Runtime, held: Held) {
   } else {
     held.kernAbgewiesen = true;
     await rt.present({
+      id: "bei-witwe-kern-dorf",
       title: "Bei Witwe Kern",
       art: "apothecary",
       portrait: "kern",
@@ -1284,7 +1288,8 @@ async function dorfBrunnen(rt: Runtime, held: Held) {
 
 async function dorfFalscherMehlsack(rt: Runtime, held: Held) {
   const wahl = await rt.present({
-    title: "Am Brunnen",
+    id: "mehlsack-am-brunnen",
+    title: "Der fremde Mehlsack",
     art: "mill",
     portrait: "miller",
     held,
@@ -1319,8 +1324,10 @@ async function dorfFalscherMehlsack(rt: Runtime, held: Held) {
         lines.push("Der Span sieht aus wie das Stück Holz, das im Geröll am Glockenweg liegt — falls du schon dort warst, bist du sicher.");
       }
       await rt.present({
-        title: "Am Brunnen",
+        id: "mehlsack-folge",
+        title: "Der fremde Mehlsack",
         art: "mill",
+        artSrc: "/art/wissen/mehlsack-am-brunnen.jpg",
         portrait: "miller",
         held,
         probe: ergebnis,
@@ -1329,8 +1336,10 @@ async function dorfFalscherMehlsack(rt: Runtime, held: Held) {
     } else {
       held.mehlsackGemeldet = true;
       await rt.present({
-        title: "Am Brunnen",
+        id: "mehlsack-folge",
+        title: "Der fremde Mehlsack",
         art: "mill",
+        artSrc: "/art/wissen/mehlsack-am-brunnen.jpg",
         portrait: "miller",
         held,
         probe: ergebnis,
@@ -1344,8 +1353,10 @@ async function dorfFalscherMehlsack(rt: Runtime, held: Held) {
     const ergebnis = probe(held, "Charisma", held.charisma, LEICHT, "die Müllerin zum Melden bewegen", undefined, "reden");
     held.mehlsackGemeldet = true;
     await rt.present({
-      title: "Am Brunnen",
+      id: "mehlsack-folge",
+      title: "Der fremde Mehlsack",
       art: "mill",
+      artSrc: "/art/wissen/mehlsack-am-brunnen.jpg",
       portrait: "miller",
       held,
       probe: ergebnis,
@@ -1364,8 +1375,10 @@ async function dorfFalscherMehlsack(rt: Runtime, held: Held) {
   } else {
     held.mehlsackGefunden = true;
     await rt.present({
-      title: "Am Brunnen",
+      id: "mehlsack-folge",
+      title: "Der fremde Mehlsack",
       art: "mill",
+      artSrc: "/art/wissen/mehlsack-am-brunnen.jpg",
       portrait: "miller",
       held,
       lines: [
@@ -1514,9 +1527,10 @@ async function dorfBettlerRueckkehr(rt: Runtime, held: Held) {
 async function szeneGlockenweg(rt: Runtime, held: Held) {
   const lines = [
     "Der alte Glockenweg steigt hinter den letzten Häusern an.",
-    "Nasser Stein. Salzstaub im Gras. Oben hängt eine kleine Kapellenglocke im Wind.",
+    "Nasser Stein. Salzstaub im Gras, in die Fugen gedrückt, nicht verstreut. Oben hängt eine kleine Kapellenglocke im Wind.",
     "Die Stufen sind aus verschiedenen Steinen gesetzt. Einige tragen noch Meißelspuren, andere dunkle Flecken, die der Regen nicht aus dem porösen Gestein bekommt.",
-    "Auf halber Höhe steht eine verwitterte Figur ohne Gesicht. Jemand hat ihr einen Mantel umgelegt. Der Mantel ist neuer als die Kapelle.",
+    "Auf halber Höhe steht eine verwitterte Figur ohne Gesicht. Jemand hat ihr einen Mantel umgelegt. Der Mantel ist neuer als die Kapelle. Der Saum ist nass, der Rücken trocken. Der Wind kommt von unten.",
+    "Zwischen zwei Stufen liegt ein Span aus schwarzem Holz. Er riecht nach kalter Asche, nicht nach dem Herd des letzten Hauses.",
   ];
   if (held.glockeGescheitert) lines.push("Das Seil schwingt noch. Unten im Tal hat man es gehört.");
   await rt.present({ id: "glockenweg", title: "Alter Glockenweg", art: "chapel", portrait: null, held, lines });
@@ -1561,14 +1575,15 @@ async function glockenwegSanna(rt: Runtime, held: Held) {
     return;
   }
   const wahl = await rt.present({
+    id: "sanna-die-botin",
     title: "Sanna, die Botin",
     art: "chapel",
     portrait: "sanna",
     held,
     lines: [
-      "Sanna trägt eine Ledertasche ohne Brief.",
+      "Sanna trägt eine Ledertasche ohne Brief. Die Schnalle, die ihn halten sollte, fehlt. An der Stelle ist das Leder heller, frisch gerissen.",
       "„Er ist mir im Geröll aus der Hand gerutscht. Wenn ich leer zurückkomme, glaubt man mir weniger als dem Regen.“",
-      "Sie versucht zu lächeln und scheitert an der Kälte. Unter ihrer Zunge klebt noch Staub vom Hang.",
+      "Sie versucht zu lächeln und scheitert an der Kälte. Unter ihrer Zunge klebt noch Staub vom Hang. Ihre freie Hand bleibt am Mauerwerk, als gehöre der Stein mehr zu ihr als der Weg.",
       "„Der Brief war versiegelt“, sagt sie. „Nicht mit dem Wachs des Bürgermeisters. Mit etwas, das darunter war.“",
     ],
     choices: [
@@ -1614,14 +1629,15 @@ async function glockenwegSalz(rt: Runtime, held: Held) {
     return;
   }
   const wahl = await rt.present({
+    id: "jorren-im-geroell",
     title: "Jorren im Geröll",
     art: "ditch",
     portrait: "jorren",
     held,
     lines: [
-      "Jorren kniet neben einem aufgerissenen Sack.",
+      "Jorren kniet neben einem aufgerissenen Sack. Das Salz an der Unterseite ist nass, oben noch trocken. Der Sack hat nicht lange hier gelegen.",
       "„Salz für drei Wochen“, sagt er. „Wenn der Berg es frisst, zahlen am Ende wieder die Falschen.“",
-      "Seine Hände sind weiß bis zu den Handgelenken. In den Rissen der Haut sitzt Salz wie Frost.",
+      "Seine Hände sind weiß bis zu den Handgelenken. In den Rissen der Haut sitzt Salz wie Frost. Er sieht nicht zur Glocke hinauf, obwohl sie über ihm hängt.",
       "Im Geröll liegt ein Stück schwarzes Holz. Es stammt nicht vom Wagen und nicht von der Kapelle. Jorren sieht es an, als wäre es ein weiterer Verlust, den er nicht erklären will.",
     ],
     choices: [
@@ -1660,15 +1676,17 @@ async function glockenwegGlocke(rt: Runtime, held: Held) {
     "Die Glocke in Ruhe lassen",
   ];
   const wahl = await rt.present({
+    id: "die-kapellenglocke",
     title: "Die Kapellenglocke",
     art: "chapel",
     portrait: null,
     held,
     lines: [
       "Die Glocke ist klein. Ihr Ton wäre es nicht.",
-      "Das Seil wurde an einer Stelle neu geknotet. Jemand benutzt sie regelmäßig.",
+      "Das Seil wurde an einer Stelle neu geknotet. Die Fasern sind dort heller als der Rest. Jemand benutzt sie regelmäßig, und nicht bei Sturm.",
       "Der Knoten besteht aus drei verschiedenen Fasern: Hanf, roter Wolle und etwas, das unter deinen Fingern kalt bleibt, obwohl es trocken ist.",
-      "Auf der Innenseite der Glocke sind Namen eingeritzt. Einige wurden abgeschabt. Der letzte ist noch lesbar: kein Name, nur ein Datum.",
+      "Auf der Innenseite der Glocke sind Namen eingeritzt. Einige wurden abgeschabt, bis das Metall blank ist. Der letzte ist noch lesbar: kein Name, nur ein Datum.",
+      "Unter der Glocke liegt Asche, die der Regen nicht erreicht. Jemand hat hier etwas verbrannt, das klein genug war, um in eine Faust zu passen.",
     ],
     choices,
   });
@@ -1720,6 +1738,7 @@ async function szeneWald(rt: Runtime, held: Held) {
     "Nasses Laub. Krähen. Ein Pfad, der sich entscheidet, kein Pfad mehr zu sein.",
     "Irgendwo voraus liegt der Steinbruch. Dazwischen: Spuren, ein Hindernis, vielleicht Beute.",
     "Die Bäume wachsen eng genug, dass ihre Kronen den Himmel in schmale Streifen teilen. Zwischen diesen Streifen hängt ein fahles Licht, das weder Tag noch Abend sein will.",
+    "Der Boden gibt nach, wo vor dir jemand stehen geblieben ist, und hält, wo niemand mehr hingetreten hat. Es riecht nach nassem Holz und nach Rauch, der nicht von einem Herd kommt.",
     "Im Unterholz liegen zerbrochene Pfeile, ein Kinderlöffel und die Hälfte eines Wagenschilds. Der Wald sammelt alles, was Menschen zurücklassen, aber nichts davon wird leichter.",
   ];
   if (held.mehlsackGefunden) {

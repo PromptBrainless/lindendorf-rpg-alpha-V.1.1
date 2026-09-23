@@ -23,8 +23,10 @@
       "art": "ditch",
       "portrait": null,
       "lines": [
-        "Der Graben endet an einer halb überwucherten Zisterne, deren Mauerwerk zwar alt ist, dessen Fugen jedoch sauber und gepflegt wirken.",
-        "Jemand hält dieses Bauwerk sorgfältig instand, während im Dorf dahinter die Kinder husten."
+        "Der Graben läuft gerade. Zu gerade für Wasser, das sich seinen Weg sucht. An den Rändern steht das Gras kürzer, niedergetreten, nicht vom Regen.",
+        "Der Boden darin ist glatt. Jemand hat hier mehr als einmal mit einem Eimer entlanggeschliffen. Die Ränder tragen Kratzspuren, die nicht von Wurzeln stammen.",
+        "Er endet an einer halb überwucherten Zisterne. Das Mauerwerk ist alt. Die Fugen sind es nicht. Jemand hat sie nachgestrichen, hell, noch nicht vom Moos genommen.",
+        "Im Dorf husten die Kinder. Hier hält jemand ein Becken instand, das sie nicht zu sehen bekommen."
       ],
       "choices": [
         "Weiter"

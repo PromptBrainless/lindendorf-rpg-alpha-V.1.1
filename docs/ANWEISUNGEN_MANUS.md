@@ -1,3 +1,12 @@
+# Anweisungen für Manus — abgelöst
+
+**Nicht arbeiten nach diesem Blatt.** Es galt einem anderen Werkzeug am 17. September 2026.
+Gilt: `AGENTS.project.md`, Stimme in `src/game/werkstatt-vertrag.ts`, Kanon im Skill `lindendorf`.
+
+Darunter Archiv.
+
+---
+
 # Anweisungen für Manus — How to be a Hero (Lindendorf)
 
 Du arbeitest an einem **illustrierten Textabenteuer**. Es ist bereits spielbar. Nicht neues Spiel, nicht neues Regelwerk, nicht UI-Redesign.

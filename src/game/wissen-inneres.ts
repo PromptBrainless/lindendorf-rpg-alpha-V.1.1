@@ -22,7 +22,7 @@ export const WISSEN_BILD: Record<KnowledgeKey, string> = {
   gasse_leer: "/art/wissen/gasse_leer.jpg",
   kesseljahr: "/art/wissen/kesseljahr.jpg",
   ilses_liste: "/art/wissen/ilses_liste.jpg",
-  ungerufener_name: "/art/wissen/glockenweg.jpg",
+  ungerufener_name: "/art/wissen/ungerufener_name.jpg",
 };
 
 export const INNERES: Record<KnowledgeKey, string[]> = {

@@ -1,5 +1,6 @@
 import { fundFuerSzene, QUESTS } from "./json/baum";
 import type { SzeneJson } from "./json/schema";
+import { loreZeilen } from "./lore";
 
 export const KANON_NAMEN = [
   "Holm",
@@ -113,6 +114,14 @@ export function grokFassung(data: RagEingabe) {
       `Pflichtfelder (keine streichen, keine hinzufügen): ${pflicht.join(", ")}`,
       "JSON dieser Seite:",
       JSON.stringify(fund.szene, null, 2),
+    );
+  }
+  const lore = loreZeilen(data.id || fund?.szene.id);
+  if (lore.length) {
+    teile.push(
+      "",
+      "Wahr nur an dieser Seite. Nicht in den Text setzen, wenn der Ausgangstext es nicht schon zeigt. Nicht auf andere Karten tragen:",
+      ...lore.map((zeile) => `- ${zeile}`),
     );
   }
   teile.push("", "Schreibe nur diese Szene-JSON. Denselben Ort genauer. Keine anderen Karten.");

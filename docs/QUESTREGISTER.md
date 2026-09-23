@@ -54,6 +54,11 @@ Tod: `todesort` = `steg | rennik | zisterne | null`.
 
 `spurenGefunden` ist vergeben (Mühle). Wald benutzt denselben Bezeichner nur lokal.
 
+Lore-Fakten, kein Spieltext: `src/game/lore.ts`. Jeder Fakt nennt die
+Szenen-Ids, an denen er wahr wird, plus Wissenskey und Figur, wo sie
+schon existieren. Die Paraphrase ersetzt keine Zeile in `ki-auflagen`
+oder in den Quest-Dateien.
+
 Schnittstelle der Reihe: `src/game/reihe-versorgung.ts`. Methode und Ausgang
 einer Quest färben die andere, ohne sie zu sperren. Journal-Key `versorgung_muster`.
 

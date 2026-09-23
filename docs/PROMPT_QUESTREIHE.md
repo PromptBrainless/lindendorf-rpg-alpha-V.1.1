@@ -1,3 +1,14 @@
+# Prompt: Questreihe — nur noch Verweis
+
+**Nicht diesen Block einkopieren.** Die Sperre „während Block A keine Quest“ ist vorbei.
+Neue Quest: Skill `.grok/skills/lindendorf-questreihe/SKILL.md`.
+Eine Quest pro Block. Namen erst nach `docs/QUESTREGISTER.md`.
+Kein Raten, wenn der Nutzer das Thema nicht genannt hat.
+
+Der Block darunter ist Archiv und enthält tote Pfade unter `attachments/`.
+
+---
+
 # Prompt: Qualitativ hohe Questreihe in Lindendorf
 
 Diesen Block an Grok geben (Chat oder Automation). Platzhalter in

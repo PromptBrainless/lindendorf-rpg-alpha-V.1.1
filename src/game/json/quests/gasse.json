@@ -61,10 +61,10 @@
           "art": "chapel",
           "portrait": null,
           "lines": [
-            "Du hast deinen Platz so gewählt, dass die Kirchentür dich nicht trifft, wenn sie aufschlägt — eine Berechnung, die nur ein Mensch anstellt, der diesen Platz nicht zum ersten Mal einnimmt. Die Dämmerung liegt schwer auf dem nassen Dach der Steinkapelle, und der Geruch von nassem Stein und fauligem Moos drückt dir in die Nase, kalt, erdig, mit dem metallischen Beigeschmack von altem Eisen im Mörtel. Wasser sickert in dünnen Fäden über die Kante und tropft neben deinem Ohr auf den Boden, regelmäßig wie ein schwacher Puls.",
-            "Der Stein unter dir ist abgewetzt zu einer sanften Mulde, genau von der Form, die ein Körper über viele, viele Winter hinterlässt. Dein Gewicht sinkt hinein, die Kälte greift durch Hose und Haut bis in die Hüfte, zäh und bleiern, und die Mulde nimmt dich auf, als hätte sie schon lange auf genau dieses Maß gewartet. Die Kirchmauer im Rücken ist rau, fleckig von dunklen Flechten, die sich wie vertrocknete Wunden über die Blöcke ziehen; jeder Atemzug reibt deine Schultern daran, und du spürst das feine Abschaben, das Gewicht deines eigenen Körpers, das den Stein weiter aushöhlt.",
-            "Wer hier sitzt, sitzt nicht zum ersten Mal, und er sitzt auch nicht zum zehnten. Die Kälte hat sich in die Gelenke gesetzt, ein dumpfer Druck hinter den Knien, und der nasse Geruch steigt weiter, mischt sich mit dem schwachen Hauch von verrottetem Laub, der unter der Mauer hervorquillt.",
-            "„Weißt du, warum dort niemand mehr geht?“ Du stellst die Frage, ohne eine Antwort zu erwarten, als wäre die Frage selbst schon die halbe Last, die du abzugeben hattest. Der Dampf deines Atems hängt einen Moment vor dem Gesicht, dann reißt ihn die Dämmerung weg, und du bleibst in der Mulde sitzen, schwer, kalt, mit dem Stein, der dich hält."
+            "Fenn hat seinen Platz so gewählt, dass die Kirchentür ihn nicht trifft, wenn sie aufschlägt — eine Berechnung, die nur ein Mensch anstellt, der diesen Platz nicht zum ersten Mal einnimmt. Die Dämmerung liegt schwer auf dem nassen Dach der Steinkapelle. Es riecht nach nassem Stein und fauligem Moos, kalt, erdig, mit dem metallischen Beigeschmack von altem Eisen im Mörtel. Wasser sickert über die Kante und tropft neben seinem Ohr auf den Boden, regelmäßig wie ein schwacher Puls.",
+            "Der Stein unter ihm ist abgewetzt zu einer sanften Mulde, genau von der Form, die ein Körper über viele Winter hinterlässt. Sein Gewicht sinkt hinein. Die Kälte greift durch den Mantel bis in die Hüfte, und die Mulde nimmt ihn auf, als hätte sie auf genau dieses Maß gewartet. Die Kirchmauer in seinem Rücken ist rau, fleckig von dunklen Flechten. Wer hier sitzt, sitzt nicht zum ersten Mal und nicht zum zehnten.",
+            "In der Tasche des geflickten Mantels hält er ein morsches Stück Lattenzaun. Zehn Winter haben das Holz glattgeschliffen. Die Nagellöcher sind Dellen. Die Hand bleibt in Bewegung, als zähle sie etwas, das niemand mehr zählen will. Er ist Fenn, der Bettler an der Kirchmauer, nicht der Mann am Brunnen.",
+            "„Weißt du, warum dort niemand mehr geht?“ Er stellt die Frage, ohne eine Antwort zu erwarten, als wäre die Frage selbst schon die halbe Last. Er wartet, ob du zuhörst oder drängst. Das Jahr, das die Gasse trägt, gibt er nicht her, solange du die Antwort schon im Mund hast."
           ],
           "choices": [
             "Weiter"
@@ -218,7 +218,9 @@
           "lines": [
             "Hinter einem Stein, der nicht tragend ist und trotzdem schwer, liegt ein Paket in Wachstuch. Die Schnur ist fest, die Knoten von einer Hebamme, die weiß, wann etwas halten muss.",
             "Darin Namen. Daten. Häuser. Das Kesseljahr, in einer Schrift, die sich nicht entschuldigt.",
-            "Ilse hat die Toten nicht unter der Kirche versteckt. Sie hat verhindert, dass der Rat sie ein zweites Mal sterben lässt, indem er sie streicht."
+            "Ilse hat die Toten nicht unter der Kirche versteckt. Sie hat verhindert, dass der Rat sie ein zweites Mal sterben lässt, indem er sie streicht.",
+            "Vahls Großvater steht zuerst auf dem Papier. Daneben Stücke, die heute zur Mühle, zum Rathausplatz und zur Gerberei gehören. Die Häuser der Gasse stehen nur noch als Fläche.",
+            "Die letzte Zeile ist kurz. Wer das liest, soll nicht so tun, als wäre niemand gezählt worden."
           ],
           "choices": [
             "Weiter"

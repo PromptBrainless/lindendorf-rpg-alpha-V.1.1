@@ -17,17 +17,20 @@ user-invocable: true
 Schreibe **keine neue Engine und kein neues Kapitel**. Schreibe eine
 spielbare Nebenquest-Reihe **in der Dorf-Schleife**.
 
-Technischer Ausbau (Schema, Log, Lager): `docs/ERNEUERUNGSPLAN.md`.
-Während Block A und während der Lager-Extraktion keine neue Quest.
+Technischer Hintergrund, nicht der Auftrag: `docs/ERNEUERUNGSPLAN.md`.
+Die alte Sperre „während Block A keine neue Quest“ gilt nicht mehr.
+Trotzdem keine Quest, solange der Nutzer kein Thema genannt hat.
 
 
 Goldstandard (lesen, nicht kopieren):
 
-- Spec: `attachments/quest-die-schuld-der-muehle.md`, `attachments/quest-das-truebe-wasser.md`
-- Code: `src/game/quest-muehle.ts`, `src/game/quest-brunnen.ts`
-- Stimme: `attachments/how_to_be_a_hero_v01.py`
-- Regeln: `docs/AUTORENHANDBUCH_TEXTABENTEUER.md`, `docs/ANWEISUNGEN_MANUS.md`
+- Code: `src/game/quest-muehle.ts`, `src/game/quest-brunnen.ts`, `src/game/quest-kesseljahr.ts`
+- Register: `docs/QUESTREGISTER.md`
+- Lore-Grenze: `src/game/lore.ts`
+- Stimme: `src/game/werkstatt-vertrag.ts` und `references/qualitaet.md`
 - Wissen: `docs/WISSEN_FREISCHALTUNGSPLAN.md`
+
+Pfade unter `attachments/` nicht voraussetzen. Liegt die Datei nicht, gilt der Code.
 
 **Referenzen (pflichtweise, in dieser Reihenfolge):**
 
@@ -37,8 +40,8 @@ Goldstandard (lesen, nicht kopieren):
 4. `references/wiring.md` — TypeScript-Vertrag, Hub-Labels, Save-Merge
 5. `references/qualitaet.md` — Stimme, Gates, Durchlauf, Automatismen
 
-Nutzer-Prompt zum Einfügen: `docs/PROMPT_QUESTREIHE.md`.
 Lebendes Register: `docs/QUESTREGISTER.md` — nach jeder Quest aktualisieren.
+`docs/PROMPT_QUESTREIHE.md` nicht einkopieren. Es ist Archiv.
 
 ---
 

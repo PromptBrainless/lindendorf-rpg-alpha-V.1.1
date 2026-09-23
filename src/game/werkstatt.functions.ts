@@ -7,6 +7,7 @@ import { WeltAuflageSchema } from "./welt";
 import { grokFassung, type RagEingabe } from "./werkstatt-rag";
 import { ART_SICHT, GROK_STIMME, GROK_SZENE } from "./werkstatt-vertrag";
 import { KANON_NAMEN } from "./werkstatt-rag";
+import { loreZeilen } from "./lore";
 
 const ART = new Set([
   "title",
@@ -83,6 +84,7 @@ export const formuliereText = createServerFn({ method: "POST" })
       hinweis: String(inner.hinweis ?? "").slice(0, 800),
       title: String(inner.title ?? "").slice(0, 200),
       art: String(inner.art ?? "").slice(0, 40),
+      id: String(inner.id ?? "").slice(0, 80),
     };
   })
   .handler(async ({ data }) => {
@@ -91,6 +93,7 @@ export const formuliereText = createServerFn({ method: "POST" })
     if (!apiKey) return { ok: false as const, error: "Kein xAI-Schlüssel auf dem Server." };
     const sicht = ART_SICHT[data.art] ?? "";
     const erlaubt = KANON_NAMEN.filter((name) => data.text.includes(name) || data.title.includes(name.split(" ")[0]));
+    const lore = loreZeilen(data.id);
     try {
       const res = await fetch("https://api.x.ai/v1/chat/completions", {
         method: "POST",
@@ -112,6 +115,9 @@ export const formuliereText = createServerFn({ method: "POST" })
                 data.title && `Titel dieser Seite: ${data.title}`,
                 sicht && `Licht und Ort dieser Karte, nur wenn der Text ihn braucht: ${sicht}`,
                 erlaubt.length ? `Namen, die hier vorkommen dürfen: ${erlaubt.join(", ")}` : "Keine Eigennamen erfinden.",
+                lore.length
+                  ? `Wahr an dieser Seite, nur ausführen wenn der Ausgangstext es schon berührt:\n${lore.map((zeile) => `- ${zeile}`).join("\n")}`
+                  : "",
                 data.hinweis && `Hinweis der Spielleitung, gilt nur für diese Seite: ${data.hinweis}`,
                 "Länger als die Eingabe, aber auf demselben Fleck. Keine anderen Orte.",
                 "Ausgangstext dieser Seite:",

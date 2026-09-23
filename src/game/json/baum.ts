@@ -30,6 +30,23 @@ export const QUESTS_ROH: QuestJson[] = [
         "Vor dir liegen Rathaus, Taverne, Brunnen, die Mühle und der Weg zum Hang.",
         "Aus dem Osten steigt Rauch. Dort liegt der alte Steinbruch.",
       ]),
+      karte(
+        "mehlsack-am-brunnen",
+        "Der fremde Mehlsack",
+        "mill",
+        [
+          "Hinter dem Mühlstein steht ein Mehlsack, der nicht nach Mehl riecht.",
+          "Das Tuch ist grob. Die Naht wurde mit schwarzem Garn geschlossen.",
+          "Die Müllerin sieht dich an. „Der war gestern noch nicht da.“",
+          "Auf dem Tuch wurde das Mühlenzeichen nachgemalt. Der Kreis ist richtig, aber die drei Kerben darin zeigen in die falsche Richtung.",
+        ],
+        [
+          "Die Naht untersuchen (Geschick, mittel)",
+          "Den Sack zum Bürgermeister bringen (Charisma, leicht)",
+          "Die Müllerin nicht hineinziehen",
+        ],
+        "miller",
+      ),
     ]),
     teil("dorf", "rathaus", "Rathaus", [karte("rathaus", "Rathaus", "townhall", [], ["Weiter"], "holm")]),
     teil("dorf", "taverne", "Taverne", [karte("zum-letzten-fass", "Zum letzten Fass", "tavern", [], ["Weiter"], "mara")]),
@@ -87,7 +104,9 @@ export const QUESTS_ROH: QuestJson[] = [
         "Ratsherr Dennek",
         "well",
         [
-          "Dennek rührt weiter im Eimer, mechanisch, ohne Überzeugung, und das Wasser wird dadurch um keinen Deut klarer. „Trockenes Jahr“, sagt er, mit der glatten Sicherheit eines Mannes, der diesen Satz schon oft geübt hat. „Der Brunnen gibt, was er kann. Mehr zu verlangen wäre schon Klage.“",
+          "Dennek rührt weiter im Eimer, mechanisch, ohne Überzeugung, und das Wasser wird dadurch um keinen Deut klarer, was ihm selbst nicht zu entgehen scheint, auch wenn er die Bewegung nicht einstellt. „Trockenes Jahr“, sagt er, mit der glatten Sicherheit eines Mannes, der diesen Satz schon oft geübt hat. „Der Brunnen gibt, was er kann. Mehr zu verlangen wäre schon Klage, und wofür sollte man klagen, wenn die Erde selbst knapp ist?“",
+          "Der Stock kreist immer an derselben Stelle vorbei. Die Fuge rechts am Rand bleibt unberührt. Das Wasser, das er aufwühlt, fällt in sich zurück und bleibt grau.",
+          "An seinen Stiefeln klebt hellerer Lehm als auf dem Platz. Der Weg zum Wald ist kürzer, als sein Satz vom trockenen Jahr behauptet.",
         ],
         [
           "Nach dem trockenen Jahr fragen (Charisma, schwer)",
@@ -103,8 +122,10 @@ export const QUESTS_ROH: QuestJson[] = [
         "Denneks Stock hat beim Rühren stets genau diese Stelle gemieden, jedes Mal, als kenne die Hand, die ihn führt, die Wahrheit besser als der Mund, der sie leugnet.",
       ]),
       karte("ablaufgraben", "Ablaufgraben", "ditch", [
-        "Der Graben endet an einer halb überwucherten Zisterne, deren Mauerwerk zwar alt ist, dessen Fugen jedoch sauber und gepflegt wirken.",
-        "Jemand hält dieses Bauwerk sorgfältig instand, während im Dorf dahinter die Kinder husten.",
+        "Der Graben läuft gerade. Zu gerade für Wasser, das sich seinen Weg sucht. An den Rändern steht das Gras kürzer, niedergetreten, nicht vom Regen.",
+        "Der Boden darin ist glatt. Jemand hat hier mehr als einmal mit einem Eimer entlanggeschliffen. Die Ränder tragen Kratzspuren, die nicht von Wurzeln stammen.",
+        "Er endet an einer halb überwucherten Zisterne. Das Mauerwerk ist alt. Die Fugen sind es nicht. Jemand hat sie nachgestrichen, hell, noch nicht vom Moos genommen.",
+        "Im Dorf husten die Kinder. Hier hält jemand ein Becken instand, das sie nicht zu sehen bekommen.",
       ]),
     ]),
     teil("brunnen", "zisterne", "Grovins Zisterne", [
@@ -113,7 +134,9 @@ export const QUESTS_ROH: QuestJson[] = [
         "An der Zisterne",
         "ditch",
         [
-          "Dorniges Gestrüpp steht dicht vor dem steinernen Becken, ein natürlicher Wall. Dahinter, kaum sichtbar durch die Zweige, bewegt sich eine flache Hand über Wasser, das reiner und klarer ist als alles, was man seit Tagen im Dorf gesehen hat.",
+          "Dornen stehen dicht vor dem Becken. Nicht gewachsen, gelegt. Die Zweige sind an den Schnittstellen hell.",
+          "Dahinter bewegt sich eine Hand über Wasser. Flach. Ohne Eile. Das Wasser ist klar bis auf den Stein. Im Dorf hat der Eimer diese Farbe seit Tagen nicht mehr.",
+          "Der Geruch ist Stein und nasses Holz, nicht Eisen. Wer hier schöpft, schöpft nicht aus dem Brunnen.",
         ],
         [
           "Sich durch das Gestrüpp zwängen (Stärke, leicht)",
@@ -143,15 +166,16 @@ export const QUESTS_ROH: QuestJson[] = [
         "Zwei Brunnen, ein Dorf",
         "well",
         [
-          "Das Wasser wird spürbar klarer, gewiss, doch nie wirklich genug, um für alle zu reichen. Kern braut weiterhin dieselbe Mischung wie zuvor, nur seltener nun.",
-          "Man selbst trägt das Wissen um das, was wirklich geschah, fortan ganz allein, ohne es mit irgendwem teilen zu können.",
+          "Das Wasser wird spürbar klarer. Es reicht länger. Es reicht nicht für alle. Kern braut dieselbe Mischung wie zuvor, nur seltener, und stellt die Flaschen enger, damit die Lücke nicht auffällt.",
+          "Der Eimer am Platz ist nicht mehr grau. Er ist auch nicht klar. Wer zuerst kommt, trinkt. Wer später kommt, zählt die Ringe an der Wand.",
+          "Du trägst, was wirklich geschah, allein. Dennek rührt nicht mehr. Er spricht auch nicht.",
         ],
         ["Weiter"],
         "kern",
       ),
       karte("wasser-mit-einem-riss", "Wasser mit einem Riss", "well", [
-        "Das Wasser fließt zwar wieder, doch Grovin ist verschwunden, nicht verschwunden genug, um die Sache endgültig zu beenden.",
-        "In manchen Nächten hört man Schritte am Waldrand, die niemand im Dorf laut beim Namen nennen möchte.",
+        "Das Wasser fließt wieder. Der Eimer schlägt gegen den Stein, und der Klang ist der alte. Grovin ist fort, nicht fort genug.",
+        "Am Waldrand sind Schritte, nachts, wenn der Wind vom Osten kommt. Niemand im Dorf sagt den Namen dazu. Die Zisterne steht noch. Ihre Fugen auch.",
       ]),
       karte(
         "klares-wasser",
@@ -240,27 +264,46 @@ export const QUESTS_ROH: QuestJson[] = [
     teil("wald", "glockenweg", "Alter Glockenweg", [
       karte("glockenweg", "Alter Glockenweg", "chapel", [
         "Der alte Glockenweg steigt hinter den letzten Häusern an.",
-        "Nasser Stein. Salzstaub im Gras. Oben hängt eine kleine Kapellenglocke im Wind.",
+        "Nasser Stein. Salzstaub im Gras, in die Fugen gedrückt, nicht verstreut. Oben hängt eine kleine Kapellenglocke im Wind.",
         "Die Stufen sind aus verschiedenen Steinen gesetzt. Einige tragen noch Meißelspuren, andere dunkle Flecken, die der Regen nicht aus dem porösen Gestein bekommt.",
-        "Auf halber Höhe steht eine verwitterte Figur ohne Gesicht. Jemand hat ihr einen Mantel umgelegt. Der Mantel ist neuer als die Kapelle.",
+        "Auf halber Höhe steht eine verwitterte Figur ohne Gesicht. Jemand hat ihr einen Mantel umgelegt. Der Mantel ist neuer als die Kapelle. Der Saum ist nass, der Rücken trocken. Der Wind kommt von unten.",
+        "Zwischen zwei Stufen liegt ein Span aus schwarzem Holz. Er riecht nach kalter Asche, nicht nach dem Herd des letzten Hauses.",
       ]),
       karte(
         "sanna-die-botin",
         "Sanna, die Botin",
         "chapel",
         [
-          "Sanna trägt eine Ledertasche ohne Brief.",
+          "Sanna trägt eine Ledertasche ohne Brief. Die Schnalle, die ihn halten sollte, fehlt. An der Stelle ist das Leder heller, frisch gerissen.",
           "„Er ist mir im Geröll aus der Hand gerutscht. Wenn ich leer zurückkomme, glaubt man mir weniger als dem Regen.“",
-          "Sie versucht zu lächeln und scheitert an der Kälte. Unter ihrer Zunge klebt noch Staub vom Hang.",
+          "Sie versucht zu lächeln und scheitert an der Kälte. Unter ihrer Zunge klebt noch Staub vom Hang. Ihre freie Hand bleibt am Mauerwerk, als gehöre der Stein mehr zu ihr als der Weg.",
           "„Der Brief war versiegelt“, sagt sie. „Nicht mit dem Wachs des Bürgermeisters. Mit etwas, das darunter war.“",
         ],
         ["Weiter"],
         "sanna",
       ),
-      karte("jorren-im-geroell", "Jorren im Geröll", "chapel", [], ["Weiter"], "jorren"),
-      karte("die-kapellenglocke", "Die Kapellenglocke", "chapel"),
+      karte("jorren-im-geroell", "Jorren im Geröll", "chapel", [
+        "Jorren kniet neben einem aufgerissenen Sack. Das Salz an der Unterseite ist nass, oben noch trocken. Der Sack hat nicht lange hier gelegen.",
+        "„Salz für drei Wochen“, sagt er. „Wenn der Berg es frisst, zahlen am Ende wieder die Falschen.“",
+        "Seine Hände sind weiß bis zu den Handgelenken. In den Rissen der Haut sitzt Salz wie Frost. Er sieht nicht zur Glocke hinauf, obwohl sie über ihm hängt.",
+        "Im Geröll liegt ein Stück schwarzes Holz. Es stammt nicht vom Wagen und nicht von der Kapelle. Jorren sieht es an, als wäre es ein weiterer Verlust, den er nicht erklären will.",
+      ], ["Weiter"], "jorren"),
+      karte("die-kapellenglocke", "Die Kapellenglocke", "chapel", [
+        "Die Glocke ist klein. Ihr Ton wäre es nicht.",
+        "Das Seil wurde an einer Stelle neu geknotet. Die Fasern sind dort heller als der Rest. Jemand benutzt sie regelmäßig, und nicht bei Sturm.",
+        "Der Knoten besteht aus drei verschiedenen Fasern: Hanf, roter Wolle und etwas, das unter deinen Fingern kalt bleibt, obwohl es trocken ist.",
+        "Auf der Innenseite der Glocke sind Namen eingeritzt. Einige wurden abgeschabt, bis das Metall blank ist. Der letzte ist noch lesbar: kein Name, nur ein Datum.",
+        "Unter der Glocke liegt Asche, die der Regen nicht erreicht. Jemand hat hier etwas verbrannt, das klein genug war, um in eine Faust zu passen.",
+      ]),
     ]),
-    teil("wald", "wald", "Wald", [karte("wald", "Wald", "forest")]),
+    teil("wald", "wald", "Wald", [karte("wald", "Wald", "forest", [
+      "Der Wald von Lindendorf ist kein Märchenwald.",
+      "Nasses Laub. Krähen. Ein Pfad, der sich entscheidet, kein Pfad mehr zu sein.",
+      "Irgendwo voraus liegt der Steinbruch. Dazwischen: Spuren, ein Hindernis, vielleicht Beute.",
+      "Die Bäume wachsen eng genug, dass ihre Kronen den Himmel in schmale Streifen teilen. Zwischen diesen Streifen hängt ein fahles Licht, das weder Tag noch Abend sein will.",
+      "Der Boden gibt nach, wo vor dir jemand stehen geblieben ist, und hält, wo niemand mehr hingetreten hat. Es riecht nach nassem Holz und nach Rauch, der nicht von einem Herd kommt.",
+      "Im Unterholz liegen zerbrochene Pfeile, ein Kinderlöffel und die Hälfte eines Wagenschilds. Der Wald sammelt alles, was Menschen zurücklassen, aber nichts davon wird leichter.",
+    ])]),
   ]),
   quest("lager", "Banditenlager", "Hauptfluss", [
     teil("lager", "hub", "Steinbruch", [lagerHub]),
@@ -285,8 +328,6 @@ export const QUESTS_ROH: QuestJson[] = [
 const KI_ALIAS: Record<string, string> = {
   "dorf-hub": "lindendorf",
   "sanna-botin": "sanna-die-botin",
-  "bei-witwe-kern-dorf": "bei-witwe-kern",
-  "am-brunnen": "brunnen-hub",
 };
 
 function zeichen(lines?: string[]) {
@@ -356,6 +397,43 @@ export function kanonZeilen(id?: string, titel?: string): string[] | undefined {
   const kandidaten = [extra?.lines, fundExtra?.lines, fund?.szene.lines].filter((z): z is string[] => Boolean(z?.length));
   if (!kandidaten.length) return undefined;
   return kandidaten.reduce((best, z) => (zeichen(z) > zeichen(best) ? z : best));
+}
+
+export function rohSzenen(): { id: string; titel: string }[] {
+  const liste: { id: string; titel: string }[] = [];
+  const gesehen = new Set<string>();
+  for (const quest of QUESTS_ROH) {
+    for (const teil of quest.teile) {
+      for (const szene of teil.szenen) {
+        if (gesehen.has(szene.id)) continue;
+        gesehen.add(szene.id);
+        liste.push({ id: szene.id, titel: szene.title });
+      }
+    }
+  }
+  return liste;
+}
+
+/** Unvermischte Fassungen, bevor die längste gewinnt. */
+export function rohQuellen(id: string): { karte: string[]; ki: string[]; volltext: string[] } {
+  let karte: string[] = [];
+  for (const quest of QUESTS_ROH) {
+    for (const teil of quest.teile) {
+      for (const szene of teil.szenen) {
+        if (szene.id === id) karte = szene.lines ?? [];
+      }
+    }
+  }
+  const namen = [id, KI_ALIAS[id]].filter((name): name is string => Boolean(name));
+  const kiPool: string[][] = [];
+  const vollPool: string[][] = [];
+  const roh = kiAuflagen as Record<string, Volltext>;
+  for (const name of namen) {
+    if (roh[name]?.lines?.length) kiPool.push(roh[name].lines!);
+    if (VOLLTEXTE[name]?.lines?.length) vollPool.push(VOLLTEXTE[name].lines!);
+  }
+  const laengste = (pool: string[][]) => pool.reduce((best, zeilen) => (zeichen(zeilen) > zeichen(best) ? zeilen : best), [] as string[]);
+  return { karte, ki: laengste(kiPool), volltext: laengste(vollPool) };
 }
 
 /** Spieltext: Kanon/Vollform, wenn sie länger ist als der present()-Satz. Dynamische Zeilen bleiben hinten. */

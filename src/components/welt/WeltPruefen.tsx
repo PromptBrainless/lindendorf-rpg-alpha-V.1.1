@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { Button } from "@/components/ui/button";
 import { toteFlussKnoten, unbekannteKanten } from "@/game/editor-fluss";
@@ -10,6 +10,7 @@ import { redirectToLoginIfRequired } from "@/lib/app-data";
 import type { Held, SceneView } from "@/game/types";
 import { detectPlayerLeaks } from "@/game/gm/detectPlayerLeaks";
 import { mapHeldToPlayerHud } from "@/game/gm/mapHeldToPlayerHud";
+import { vergleicheLaufzeit } from "@/game/textvergleich-lauf";
 
 const JsonMonaco = lazy(() => import("./JsonMonaco"));
 
@@ -64,6 +65,9 @@ export function WeltPruefen({
   const kanon = szene?.original ?? (szene ? { title: szene.title, lines: szene.lines, choices: szene.choices } : null);
   const diff = kanon ? kanonDiff(kanon, auflage) : null;
   const datei = (modulNachSchluessel(quelle, szene) ?? haupt).datei;
+  const texte = useMemo(() => vergleicheLaufzeit(), []);
+  const diese = texte.find((fund) => fund.id === szene?.id);
+  const abweichungen = texte.filter((fund) => !fund.gleich);
 
   useEffect(() => {
     const next = modulFuerSzene(szene);
@@ -112,6 +116,40 @@ export function WeltPruefen({
           ) : null}
         </div>
       ) : null}
+
+      <details className="mt-3 rounded-sm border border-border px-3 py-2">
+        <summary className="cursor-pointer text-sm text-muted-fg">
+          Textvergleich — {abweichungen.length === 0 ? "längste Fassung überall" : `${abweichungen.length} Abweichungen`}
+        </summary>
+        <p className="mt-2 text-xs text-muted-fg">
+          Karte, KI-Kanon und Volltext. Die längere Fassung ist der Spieltext. Kürzere Karten bleiben stehen.
+        </p>
+        {diese ? (
+          <ul className="mt-2 text-xs text-muted-fg">
+            <li>
+              {diese.titel} — Sieger {diese.sieger || "—"} {diese.siegerChars}
+            </li>
+            {diese.quellen.map((quelle) => (
+              <li key={quelle.quelle}>
+                {quelle.quelle} {quelle.fehlt ? "—" : quelle.chars}{" "}
+                {quelle.fehlt ? "" : quelle.gleich ? "gleich" : quelle.kuerzer ? "kürzer" : `weicht ab, Zeile ${quelle.zeile}`}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="mt-2 text-xs text-muted-fg">Keine Szene geöffnet.</p>
+        )}
+        {abweichungen.length ? (
+          <ul className="mt-2 max-h-40 overflow-auto text-xs text-muted-fg">
+            {abweichungen.map((fund) => (
+              <li key={fund.id}>
+                {fund.id} — {fund.sieger} {fund.siegerChars}
+                {fund.verdeckt.length ? ` · verdeckt: ${fund.verdeckt.join(", ")}` : ""}
+              </li>
+            ))}
+          </ul>
+        ) : null}
+      </details>
 
       <p className="mt-3 text-xs text-muted-fg">
         Graph, Bibliothek, Regeln, Bilder, Fragepfade und Ablauf liegen jetzt unter Kampagne und Quest.

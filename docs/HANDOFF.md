@@ -1,3 +1,12 @@
+# Übergabe — abgelöst
+
+**Nicht mehr lesen als Auftrag.** Stand der Datei: 21. September 2026.
+Gilt: `AGENTS.project.md` und `docs/KONTEXT_NEUES_FENSTER.md`.
+
+Darunter der damalige Ist-Stand, nur als Archiv.
+
+---
+
 # Übergabe — 21. September 2026
 
 Neues Fenster: `docs/ERNEUERUNGSPLAN.md`, dann `AGENTS.project.md`.

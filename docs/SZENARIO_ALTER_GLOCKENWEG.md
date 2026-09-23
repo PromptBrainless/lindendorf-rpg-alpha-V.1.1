@@ -1,7 +1,9 @@
 # Der alte Glockenweg
 
-Inhaltsspec. **Nicht** vor Block A des `docs/ERNEUERUNGSPLAN.md` ausbauen.
-Technische Reihenfolge: Schema und Log zuerst.
+**Kein Startbefehl.** Block A ist vorbei. Der Weg ist spielbar.
+Weiter nur, wenn der Nutzer es sagt. Sonst `AGENTS.project.md`.
+
+Darunter die Inhaltsspec. Der Satz „nicht vor Block A“ gilt nicht mehr.
 
 ## Grundidee
 

@@ -1,9 +1,51 @@
 # Kontext — neues Fenster
 
-**Repo:** nur [PromptBrainless/SpielVersion1.0](https://github.com/PromptBrainless/SpielVersion1.0).
+**Stand:** 23. September 2026. Pflicht nach `AGENTS.project.md`.
 
-Weltwerkzeug steht. Nicht `SpielleiterPanel` / `EditorApp` / `Weltwerkzeug.tsx` neu erfinden — die Dateien sind weg. Oberfläche: `src/components/welt/WeltEditor.tsx`. Verträge: `src/game/gm/`.
+Repo: nur [PromptBrainless/SpielVersion1.0](https://github.com/PromptBrainless/SpielVersion1.0).
 
-Spiel: Lindendorf. Deutsch, Du, Präsens. Fluss: Heldenerstellung → Prolog → Dorf → Glockenweg/Wald → Lager → Ende.
+## Was das Spiel ist
 
-Technische Reihenfolge: `docs/ERNEUERUNGSPLAN.md`.
+Lindendorf, illustriertes Textabenteuer. Deutsch, Du, Präsens.
+Fluss, unverändert:
+
+> Heldenerstellung → Prolog → Dorf-Schleife → Glockenweg oder Wald → Lager → Ende
+
+Start: Stärke, Geschick, Charisma je 10. W10. Schwellen 8 / 12 / 15.
+Zehn Lagen vor dem Tal. Höchstens drei Zustände.
+
+## Was schon sitzt
+
+| Stück | Datei |
+|---|---|
+| Mühle, Brunnen, Kesseljahr | `quest-muehle.ts`, `quest-brunnen.ts`, `quest-kesseljahr.ts` |
+| Hauptfluss, Lager | `script.ts`, `lager-content.ts` |
+| Weltwerkzeug | HUD **Welt**, `src/components/welt/WeltEditor.tsx`, Verträge `src/game/gm/` |
+| Wissen | 22 Keys, `knowledge.ts` |
+| Lore-Grenze | 41 Fakten, `src/game/lore.ts` |
+| Textvergleich | `src/game/textvergleich.ts`, `npm run check:textvergleich` |
+| Stimme | `werkstatt-vertrag.ts`, nur die offene Seite |
+
+Nicht neu erfinden: `SpielleiterPanel`, `EditorApp`, `WeltEngine`, ein zweites Runtime.
+`/editor` ist die Passworttür. `?welt` gilt nicht.
+
+## Was die letzte Sitzung geändert hat
+
+Abgleich, kein neuer Plot.
+
+- Fenn sitzt an der Kirchmauer. Der Held nicht.
+- Bertok steht beim ersten Besuch nicht unter Druck.
+- Renniks Wand zeigt Bertoks Schein. Die zweite Schuld bleibt im Mahlstein.
+- Hinter dem Stein nennt Vahls Großvater und die Aufteilung.
+- Die Schlusskarte ist die Rückkehr zu Holm.
+
+## Was liegen bleibt
+
+`docs/UMBAU_UMGEBUNG.md` listet acht mögliche Anpassungen der Prompts.
+Keine davon anfangen, bevor der Nutzer die Nummer nennt.
+
+Nicht als Nächstes ausdenken: neue Quest, neue Flags, neue Bilder, kürzere Texte, Lager noch einmal extrahieren, Glockenweg noch einmal bauen. Beides ist spielbar.
+
+## Wenn der Auftrag unklar ist
+
+Nachfragen. Nicht den Erneuerungsplan als Auftrag lesen. Nicht die Manus-Anweisung. Nicht einen alten Handoff.

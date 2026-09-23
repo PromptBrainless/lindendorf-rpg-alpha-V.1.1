@@ -1,6 +1,9 @@
 # Autorenhandbuch für illustrierte Textabenteuer
 
-Lindendorf-Reihenfolge des Code-Ausbaus: `docs/ERNEUERUNGSPLAN.md`. Dieses Handbuch gilt fürs Schreiben, nicht für Schema/Log/Lager.
+**Nachschlagen, nicht führen.** Stimme und Verbote, die dem Code widersprechen, verlieren.
+Pflicht: `AGENTS.project.md`. Die Datei `attachments/how_to_be_a_hero_v01.py` nicht voraussetzen.
+
+Lindendorf-Reihenfolge des Code-Ausbaus lag in `docs/ERNEUERUNGSPLAN.md`. Dieses Handbuch gilt fürs Schreiben, nicht für Schema, Log oder Lager.
 
 ## Das System in einem Satz
 

@@ -1,27 +1,22 @@
 # Projektkontext — How to be a Hero: Lindendorf
 
-**Snapshot:** 20. September 2026  
-**Status:** Spielbar. Schema, Log, Ruf, Erinnerung, Lager-Hub-Extrakt sitzen.
+**Snapshot:** 23. September 2026, nach dem Textabgleich.
+**Einstieg einer neuen Sitzung:** `AGENTS.project.md`, dann `docs/KONTEXT_NEUES_FENSTER.md`.
+Dieses Blatt wiederholt den Stand. Es vergibt keinen nächsten Auftrag.
 
-## Richtung
+## Stabil
 
-> Heldenerstellung → Dorf-Schleife → Glockenweg/Wald → Banditenlager → Ende
+Spielbar. Fluss: Heldenerstellung → Dorf-Schleife → Glockenweg oder Wald → Lager → Ende.
+Mühle, Brunnen, Kesseljahr als Module. Lager in `lager-content.ts`.
+Weltwerkzeug im HUD. Wissen abgeleitet. Lore nur als GM-Grenze.
+Längere Fassung gewinnt nur, wenn sie dieselbe Handlung sagt.
 
-ST/GE/CH Start 10/10/10. W10. 10 LP. Heiltrank, Schlüssel, Gold.
-Gunst/Last über `held.effekte`. Booleans am Held bleiben. Entscheidungs-Log kommt additiv.
+## Nicht mehr der nächste Schritt
 
-Technische Reihenfolge: `docs/ERNEUERUNGSPLAN.md`.  
-Quest-Kanon: `docs/QUESTREGISTER.md`.
-
-## Erzählstand
-
-Mühle, Brunnen, Kesseljahr spielbar, Echo ohne Schloss.
-Lager und Hauptfluss in `script.ts`. Intro-Pilot in `content.ts`.
-
-## Nächster sicherer Schritt
-
-HeldSchema, Log, Ruf und Lager-Hub sitzen. Restliche Lager-Wege extrahieren **oder** Glockenweg — nicht beides.
+Lager-Wege extrahieren oder Glockenweg bauen. Beides sitzt.
+Prompt-Umbau aus `docs/UMBAU_UMGEBUNG.md` nur nach genannter Nummer.
 
 ## Git
 
-Ziel: nur [PromptBrainless/SpielVersion1.0](https://github.com/PromptBrainless/SpielVersion1.0). Keine Spiegel-Repos mehr.
+Nur [PromptBrainless/SpielVersion1.0](https://github.com/PromptBrainless/SpielVersion1.0).
+Keine Spiegel-Repos.
