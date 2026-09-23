@@ -4,10 +4,10 @@ Technische Reihenfolge: `docs/ERNEUERUNGSPLAN.md`.
 Sitzung: `docs/HANDOFF.md`.
 Namen/Flags: `docs/QUESTREGISTER.md`.
 
-Nebenquests: `.grok/skills/lindendorf-questreihe/SKILL.md`, Prompt
-`docs/PROMPT_QUESTREIHE.md`. Eine Quest pro Block.
+Nebenquests: `.grok/skills/lindendorf-questreihe/SKILL.md`, Prompt `docs/PROMPT_QUESTREIHE.md`. Eine Quest pro Block.
 
-Git: nur `PromptBrainless/SpielVersion1.0`. Remote `origin`. Keine Spiegel.
+Aktives Hauptprojekt: `PromptBrainless/lindendorf-rpg-alpha-V.1.1`.
+Diese Exportkopie unter `export/spielversion1-7170673/` ist ein Vergleichsarchiv. Sie ist keine aktive Arbeitsquelle und keine zweite Implementierungswahrheit.
 
 ## Drei Zustandmuster
 
@@ -24,3 +24,7 @@ Danach: `npm run typecheck && npm run check:knowledge && npm run check:questreih
 
 Engine, Runtime, Auth, DB, Haupt-Endtitel, Zod-Vollumbau von `types.ts`,
 neue ArtKeys. Grundfluss Heldenerstellung → Dorf → Glockenweg/Wald → Lager → Ende.
+
+## Archivregel
+
+Dieses Verzeichnis darf nur zum Vergleich, zur Recherche und zum historischen Abgleich genutzt werden. Für den aktiven Kanon, die Implementierung und den laufenden Ausbau gilt das Hauptrepo `PromptBrainless/lindendorf-rpg-alpha-V.1.1`.
