@@ -1,60 +1,28 @@
-# Stil
+Stilvorgaben und Struktur
 
-Festgelegt: direkt und klar.
+Der Text folgt einer klaren, sachlichen und beobachtenden Ausrichtung.
+ Die Struktur des Dokuments bleibt erhalten, während die sprachliche Form zwei getrennte Ebenen abbildet:
 
-## Grundregeln
+ die neutrale, beschreibende Erzählerstimme ! + ! die direkte Perspektive des Protagonisten.
 
-1. Kurze Sätze. Ein Gedanke pro Satz. Keine Schachtelsätze.
-2. Keine poetischen Ausschmückungen, die der Klarheit schaden.
-3. Beobachtung vor Interpretation. Der Text beschreibt, was da ist, nicht was es bedeutet.
-4. Handlung vor Stimmung. Stimmung entsteht durch das, was passiert.
-5. Dialoge ohne Floskeln. NPCs reden, was sie denken.
-
-## Verbote
-
-- Keine Heldenfantasie. Kein Retterton.
-- Keine moderne Sprache: nicht System, Struktur, Politik. Sondern Ordnung, Versorgung, Rechnung, Schuld, Namen.
-- Keine Videospielsprache im Text: nicht Quest, NPC, Hub, Skillcheck. Sondern Auftrag, Figur, Ort, Probe, Entscheidung.
-- Keine moralische Markierung der Optionen. Nur Konsequenzen.
-
-## Beispiel Holm
-
-Das Kontor riecht nach nassem Tuch und altem Wachs. Holm sitzt dir gegenüber. Die Hände flach auf dem Tisch.
-
-Hinter ihm tickt eine Uhr. Du siehst sie nicht. Jeder Schlag klingt wie ein Sack Mehl, der im Steinbruch verschwindet.
-
-„Banditen im Steinbruch“, sagt er. „Rauch im Osten. Das Dorf soll schlafen können, ohne an die Glocke zu denken.“
-
-Er schiebt dir ein Papier hin. Nicht als Bitte. Als Gewicht.
-
-„Du kannst den Auftrag annehmen. Oder du kannst gehen. Aber wenn du ihn annimmst, dann weiß, dass Aufträge dieser Art immer eine zweite Rechnung haben.“
-
-## Beispiel Fenn
-
-Fenn sitzt an der Kirchmauer. Die Füße im Wasser der Dachrinne.
-
-Er hebt den Blick, noch bevor du an ihm vorbeigehst. In der Tasche hält er ein morsches Stück Lattenzaun. Zehn Winter haben das Holz glattgeschliffen.
-
-„Weißt du, warum dort niemand mehr geht?“
-
-Du stellst die Frage. Nicht, weil du eine Antwort erwartest. Sondern weil die Frage selbst schon die halbe Last ist.
-
-Fenn antwortet nicht sofort. Er zählt etwas in der Tasche. Mit den Fingern.
-
-„Im Kesseljahr“, sagt er schließlich. „Da war noch ein Weg. Dann war da nur noch eine Gasse. Und dann war da gar nichts mehr.“
-
-Er wartet. Nicht auf dich. Auf jemanden, der zuhört.
-
-## Beispiel Liste
-
-Das Wachstuch ist schwerer als erwartet. Darin Papier. Darauf Namen. Daten. Häuser.
-
-Ilse hat die Toten nicht unter der Kirche versteckt. Sie hat verhindert, dass der Rat sie ein zweites Mal sterben lässt, indem er sie streicht.
-
-Du hältst die Liste in der Hand. Sie wiegt wenig. Aber sobald sie den Raum verlässt, wird sie schwer.
-
-Vahl sieht sie an. Nicht wie ein Mann, der etwas liest. Wie ein Mann, der berechnet, wie viel Feuer man braucht, um Papier zum Verschwinden zu bringen.
-
-„Das ist Unordnung“, sagt er.
-
-Unordnung heißt in diesem Mund: Zeugen.
+Trennung der Stimmen
+ * Die Erzählerstimme
+   * Aufgabe: Beschreibt die physische Realität, Orte, Personen und Handlungen. Sie wertet nicht, interpretiert nicht und setzt Beobachtung konsequent vor Bedeutung.
+   * Form: Vollständige Sätze, erzählende Distanz, keine Metainformationen oder modernen Begriffe.
+ * Die Stimme des Protagonisten
+   * Aufgabe: Äußert sich ausschließlich durch direkte Fragen oder gezielte Handlungen innerhalb der Szene, um das innere Handlungsinteresse darzustellen.
+   * Form: Unmittelbar aus der Innenperspektive heraus formuliert.
+Grundregeln
+ * Abfolge der Szene: Erst der Ort, dann die anwesenden Personen, dann der Protagonist, danach die Wahrnehmung des Restlichen, gefolgt von der Handlung. Die Stimmung entsteht ausschließlich als Konsequenz des Geschehens.
+ * Dialoge: Vollständig ausformuliert. Personen reden sachlich, ohne künstliche Zugewandtheit oder Feindseligkeit, und äußern direkt ihre Absichten.
+ * Verbote: Keine Heldenfantasie, kein Retterton, keine moderne Sprache (kein System, keine Struktur), keine Videospielbegriffe (keine Quests, keine NPCs) und keine moralische Markierung von Optionen.
+Umsetzungsbeispiel
+In der Ecke liegt Schutt. Daneben steht ein Krug. Das Wasser darin ist grau.
+Marten prüft das Gewicht des Ledersacks. Darin liegen Zettel. Darauf stehen Summen. Schulden. Tage.
+Greta hat die Abrechnung nicht im Keller versteckt. Sie hat verhindert, dass die Zunft sie ein zweites Mal ruiniert, indem sie die Namen schwärzt.
+Du hältst das Papier in den Fingern. Es wiegt wenig. Aber sobald du den Raum verlässt, zieht es nach unten.
+Wo ist das restliche Geld?, denkst du.
+Vahl blickt auf das Papier. Nicht wie ein Mann, der liest. Wie ein Mann, der das Holz misst, das für ein Feuer nötig ist.
+„Das ist ein Fehlbetrag“, sagt er.
+Fehlbetrag heißt in diesem Mund: Zeugen.
+Noch
