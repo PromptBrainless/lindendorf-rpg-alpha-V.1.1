@@ -2,7 +2,8 @@
 
 **Stand:** 23. September 2026. Pflicht nach `AGENTS.project.md`.
 
-Repo: nur [PromptBrainless/SpielVersion1.0](https://github.com/PromptBrainless/SpielVersion1.0).
+Aktives Repo: [PromptBrainless/lindendorf-rpg-alpha-V.1.1](https://github.com/PromptBrainless/lindendorf-rpg-alpha-V.1.1).
+Vergleichs- und Archivstand: [export/spielversion1-7170673/](../export/spielversion1-7170673/). Der Export ist kein aktiver Arbeitsbaum und keine zweite Implementierungswahrheit.
 
 ## Was das Spiel ist
 
@@ -38,6 +39,7 @@ Abgleich, kein neuer Plot.
 - Renniks Wand zeigt Bertoks Schein. Die zweite Schuld bleibt im Mahlstein.
 - Hinter dem Stein nennt Vahls Großvater und die Aufteilung.
 - Die Schlusskarte ist die Rückkehr zu Holm.
+- Karrieren, Schicksal, Glück, Status und Herkunftsbegriffe bleiben erhalten, werden jedoch später als eigener Ausbau bearbeitet.
 
 ## Was liegen bleibt
 
