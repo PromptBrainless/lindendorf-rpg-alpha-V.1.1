@@ -1,16 +1,14 @@
-# Wiki — How to be a Hero Lindendorf
+# How to be a Hero — Lindendorf
 
-Einzelne Seiten der Neuausrichtung und des Regelsystems, abgelegt im Repository unter `wiki/`.
+Wiki der Neuausrichtung. Stand: 23. September 2026.
 
-Das GitHub-Wiki unter https://github.com/PromptBrainless/lindendorf-rpg-alpha-V.1.1/wiki ist noch leer. GitHub erzeugt das Wiki-Git erst, wenn die erste Seite über die Oberfläche angelegt wird:
+Lindendorf ist kein Heldenepos. Es ist ein Dorf, das seit Jahren mit Problemen lebt, die niemand gelöst hat. Fast jede Figur hat sich arrangiert. Fast jede Figur trägt Schuld. Fast jede Figur verdient an etwas, das sie nach außen verurteilt.
 
-https://github.com/PromptBrainless/lindendorf-rpg-alpha-V.1.1/wiki/_new
-
-Danach können die Dateien aus diesem Ordner 1:1 als Wiki-Seiten übernommen werden. Dateiname ohne `.md` wird zum Seitentitel.
+Die zentrale Frage lautet nicht: *Wie rettet der Held Lindendorf?*  
+Sondern: *Welche Form von Schuld soll das Dorf weitertragen?*
 
 ## Seiten
 
-- [Home](Home.md)
 - [Leitlinien](Leitlinien.md)
 - [Weltgeheimnis](Weltgeheimnis.md)
 - [Queststruktur](Queststruktur.md)
@@ -21,6 +19,19 @@ Danach können die Dateien aus diesem Ordner 1:1 als Wiki-Seiten übernommen wer
 - [Enden](Enden.md)
 - [Stil](Stil.md)
 - [Quest-Ankunft](Quest-Ankunft.md)
+
+## Projektregister
+
+- [Projektdateien-Register](Projektdateien-Register.md)
+- [Erzählung und Kanon](Projekt-Erzaehlung-und-Kanon.md)
+- [Quests und Szenen](Projekt-Quests-und-Szenen.md)
+- [Wissen und Freischaltungen](Projekt-Wissen-und-Freischaltungen.md)
+- [Spielregeln und Zustände](Projekt-Spielregeln-und-Zustaende.md)
+- [Charaktere und Held](Projekt-Charaktere-und-Held.md)
+- [Weltwerkzeug und Spielleitung](Projekt-Weltwerkzeug-und-Spielleitung.md)
+- [Technik und Laufzeit](Projekt-Technik-und-Laufzeit.md)
+- [Bild, Ton und Oberfläche](Projekt-Bild-Ton-und-Oberflaeche.md)
+- [Anhänge und Arbeitsmaterial](Projekt-Anhaenge-und-Arbeitsmaterial.md)
 
 ## Charaktere und soziale Rollen
 
@@ -34,3 +45,7 @@ Danach können die Dateien aus diesem Ordner 1:1 als Wiki-Seiten übernommen wer
 - [Karrieren-Liste](03-karrieren-liste.md)
 - [Schicksal, Glück und Überleben](Lindendorf-Schicksal-Glueck-und-Ueberleben.md)
 - [Schicksal und Glück: vollständiger Arbeitsstand](Lindendorf-Schicksal-und-Glueck-Arbeitsstand.md)
+
+## Archiv
+
+Volltext der Arbeitsdatei: [Lindendorf_Neuausrichtung.txt](Lindendorf_Neuausrichtung.txt)
