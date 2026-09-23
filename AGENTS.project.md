@@ -1,81 +1,62 @@
-# Karriere-Planung für Lindendorf
+# Lindendorf — Pflicht vor jedem Auftrag
 
-Dieses Dokument beschreibt die Arbeitsordnung für Karrieren, Klassen, Status, Schicksal und Glück. Es ist kein sofortiger Umbau des Spiels, sondern die strukturierte Grundlage für einen späteren, kontrollierten Ausbau.
+Das Spiel existiert. Nicht neu bauen, nicht scaffolden, keine zweite Engine.
 
-## 1. Grundbegriffe
+Repo: nur `PromptBrainless/lindendorf-rpg-alpha-V.1.1`. Remote `origin`. Keine Spiegel. Nicht `SpielVersion1.0`.
 
-Für Lindendorf gilt die Differenzierung:
+## Zuerst lesen
 
-- Klasse = soziales Milieu oder gesellschaftliche Position
-- Karriere = aktueller Beruf oder tägliche Arbeit
-- Stufe = Entwicklungsstand innerhalb der Karriere
+1. Diese Datei.
+2. `wiki/Home.md` und `wiki/README.md` — das ist der inhaltliche Stand vom 23. September 2026.
+3. `docs/KONTEXT_NEUES_FENSTER.md` — was schon spielbar ist und was das Wiki noch nicht im Code ist.
 
-Diese Unterscheidung ist im Projekt bereits als Arbeitsgrundlage dokumentiert und wird weiterhin eingehalten.
+`docs/UMBAU_UMGEBUNG.md` ist keine Freigabe. Ältere Blätter unter `docs/` führen nicht, wenn sie dem Wiki widersprechen.
 
-## 2. Nicht-Implementierungsregeln
+## Zwei Wahrheiten, eine Richtung
 
-Folgende Punkte sind aktuell keine fertige, bodenständige Implementierung, sondern ein späterer Ausbau:
+| Frage | Gilt |
+|---|---|
+| Was der Spieler heute sieht | der Code: `script.ts`, `quest-*.ts`, `lager-content.ts`, längste gleiche Handlung |
+| Was der Inhalt werden soll | `wiki/` |
+| Namen, Flags, Labels, solange die Szene nicht umgebaut ist | `docs/QUESTREGISTER.md`, bei Zweifel der Code |
+| Klassen, Karrieren, Status, Schicksal | `wiki/` und `docs/KARRIERE-PLANUNG.md`. Noch keine fertige Mechanik. Nicht als Rassen bauen. |
 
-- voll mechanische Karrierewerte
-- Status- und Talent-Block als fertige Spielsysteme
-- Schicksal und Glück als echte Werte mit kompletten Folgen
-- endliche Karriere-Listen als feste Spielmechanik
+Wenn eine Szene dem Wiki widerspricht, ist das Wiki das Ziel und der Code der Ist-Stand. Nicht beides gleichzeitig in einen Satz schreiben. Eine Szene wird erst umgestellt, wenn der Auftrag diese Szene nennt.
 
-## 3. Karrieren und Herkunft
+## Was das Wiki festlegt
 
-Karrieren sind keine Fantasy-Rassen, keine generischen Klassen mit Rassenzwang und keine reine Kampf- oder Magie-Definition.
+- Lindendorf ist kein Heldenepos. Die Frage ist, welche Schuld das Dorf weiterträgt.
+- Das Weltgeheimnis ist der Pakt unter der Kapelle: vor etwa dreißig Jahren Vahl, Dennek und Holm. Die Gasse wurde aus den Listen genommen. Menschen wurden in Mühle, Steinbruch und Lagerhäuser am Fluss verteilt. Ilse schrieb die Namen. Ob unter der Kapelle etwas gebunden wurde, bleibt offen.
+- Rotes Wachs markiert, dass etwas entfernt wurde und nicht zurückkehren darf. Die Glocke ist ein Signal, kein Gebet.
+- Grovin entzieht Wasser, weil er nicht bezahlt wurde. Dennek hat das als Druck gewollt.
+- Die Mühle steht still, weil sie Menschen und Gut verteilt, nicht nur weil das Korn schlecht ist.
+- Die Banditen bewachen den alten Transportweg für jemanden im Dorf.
+- Kein Heilungsende. Der Zustand des Dorfes steht in `wiki/Enden.md`.
+- Klasse ist Milieu, Karriere ist der Beruf jetzt, Stufe ist der Stand in diesem Beruf.
 
-Lindendorfs Karrieren unterliegen dem materiellen Ton des Spiels:
+## Nicht tun
 
-- Herkunft
-- Stand und Besitz
-- Bildung und Zugang zu Schrift
-- Familie, Zunft, Dienstherr oder soziale Bindung
-- Religion und lokale Sitten
-- Ruf, Schuld, Verpflichtungen und Gefährdungen
+- Das Wiki als schon eingebauten Spieltext behandeln. Die Seiten sind der Stand der Inhalte, nicht ein zweites `present()`.
+- Texte kürzen. Stichpunkte. Pathos.
+- Eine längere Fassung behalten, die eine andere Person handeln lässt. Fenn sitzt an der Mauer. Der Held nicht.
+- Den Pakt in die Ankunft schreiben. Die Reihenfolge steht in `wiki/Queststruktur.md`: erst Symptome, dann Besitzer, dann die Rechnung.
+- Am Brunnen heißt sie die Müllerin. Lene heißt sie in der Mühle.
+- Hub nach Zahlenindex. Immer nach Label.
+- Engine, Runtime, Auth, DB, Router ohne Auftrag.
+- `public/art/` ohne Bildplan.
 
-Die social groups "Flussvolk", "Freisassen" und "Gesetzlose" sind Herkunfts- und soziale Begriffe, nicht automatisch echte Spielklassen oder Rassen.
+## Stimme, wenn du schreibst
 
-## 4. Karriere-Designprinzipien
+Deutsch. Du. Präsens. „…“.
+Befund, nicht Urteil. Geruch, Kälte, Gewicht, Arbeit.
+Was die Szene schon zeigt, bleibt. Neue Schuld nur, wenn das Wiki sie dieser Szene gibt.
 
-Karrieren sollen später nicht nur Boni liefern, sondern auch:
+## Danach prüfen
 
-- erste Hinweise steuern
-- Personen und Orte erschließen
-- unterschiedliche Sichtweisen auf dasselbe Problem erzeugen
-- moralische Folgen, Risiken und Geheimnisse sichtbar machen
-- den Spieler in Form von Informations- und Questzugängen prägen
+`npm run typecheck`
+`npm run check:prosa`
+`npm run check:lore`
+`npm run check:textvergleich`
+`npm run check:knowledge`
 
-Das heißt: eine Karriere ist nicht nur ein Block mit Attributen, sondern ein Perspektivfenster auf das Dorf.
-
-## 5. Status und Schicksal/Glück
-
-Status, Schicksal und Glück bleiben als spätere Erweiterung erhalten, aber dieser Ausbau wird nur nach Prüfung und Freigabe erfolgen. Der entscheidende Punkt ist: sie müssen an Lindendorf angepasst werden, nicht einfach aus anderen Systemen übernommen werden.
-
-Für den späteren Ausbau gelten bewusst diese Kriterien:
-
-- keine automatische Übernahme aus fremden Fantasy-Systemen
-- keine ungetestete mechanische Verknüpfung mit Rassen oder Klassen
-- keine Vollautomatik bei Statusänderungen ohne Spiel- und Lore-Kontext
-- keine breite unüberwachte Implementierung ohne Quest- und Wissens-Logik
-
-## 6. Nächste Arbeitsschritte
-
-1. Karriere- und Klassenbegriffe im Projekt finalisieren
-2. Karrieren als Perspektiven und Informationswege katalogisieren
-3. Inhalt aus `wiki/` gegen aktive Quest- und NPC-Struktur abgleichen
-4. Karriere- und Statusmodell als eigenes Projektmodellernen, nicht als Spiel-Engine-Delta behandeln
-5. Schicksal und Glück als separate, überprüfbare Mechanik konkretisieren
-
-## 7. Zulässige Ausrichtung
-
-Die tatsächliche spätere Implementierung darf nur erfolgen, wenn diese Fragen beantwortet sind:
-
-- Welche Karriere liefert welche Hinweise?
-- Welche Handlung ist mit der Karriere plausibel?
-- Welcher soziale Blick erscheint nicht als bloßer Name, sondern als Wirklichkeit?
-- Welche Auswirkungen gibt die Karriere im Spiel und im Spielstand?
-- Welche Auswirkungen auf Wissen, Quests und NPC-Beziehungen entstehen?
-
-Bis dahin bleibt das System ein klar definierter Planungsbereich, kein fertiger Spielmechanik-Block.
-
+Grün behaupten nur, wenn der Lauf grün war.

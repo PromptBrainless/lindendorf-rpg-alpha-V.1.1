@@ -14,7 +14,8 @@
         "Am Holz sind frische Schleifspuren, nass, als hätte jemand nachts ein Fass oder einen Sack die Böschung hinuntergezogen.",
         "Der Fluss nimmt die Spuren ein paar Schritte mit und lässt sie dann im Schlamm liegen, damit der Nächste sie findet, der nicht wegsehen will.",
         "Das Rad dreht sich im zu niedrigen Wasser und nimmt trotzdem keine Last an. Die Schaufeln schlagen nass und leer.",
-        "Am Ufer ist der Schlamm heller als der Fluss. Jemand hat hier Säcke geschleift, nicht Korn gewaschen."
+        "Am Ufer ist der Schlamm heller als der Fluss. Jemand hat hier Säcke geschleift, nicht Korn gewaschen.",
+        "Am Rad liegen Schleifspuren eines gezogenen Sacks. Ein Kinderschuh zeigt zum Ufer. Das widerspricht dem Satz vom niedrigen Wasser."
       ],
       "choices": [
         "Weiter"
@@ -27,7 +28,8 @@
       "portrait": null,
       "lines": [
         "Ohne klare Spur dauert der Weg länger. Du spürst es in den Waden, wie der bemooste Waldweg dich festhält, jede Sohle schwer vom nassen Lehm, der klebt und zerrt und den Geruch von fauler Erde und kaltem Wasser hochdrückt. Dornen greifen nach dem Stoff an deinen Beinen, reißen feine Linien in die Haut, lassen Wärme sickern, die sofort wieder erkaltet. Der Uferpfad knickt. Derselbe Knick. Nasser Lehm schmiert unter dem Gewicht deines Schritts, rutscht, hält. Du gehst weiter und triffst ihn wieder: denselben Knick im Ufer, denselben fauligen Hauch vom Wasser, dasselbe kalte Gewicht in den Knochen.",
-        "Schließlich der morsche Steg. Holz, das nachgibt unter dem Blick schon, weich vom ständigen Nässe, grünschillernd, schwer von Moos und dem Geruch nasser Fäulnis. Dahinter das Haus. Es will leer wirken. Läden hängen schief, Fenster starren dunkel, die Luft davor steht still und kalt. Es schafft es nicht. Irgendetwas lastet darin, ein dumpfes Gewicht hinter den Wänden, ein Geruch von bewohntem Dunkel, der durch die Ritzen drückt und dir sagt, dass Leerheit hier nur eine dünne Haut ist."
+        "Schließlich der morsche Steg. Holz, das nachgibt unter dem Blick schon, weich vom ständigen Nässe, grünschillernd, schwer von Moos und dem Geruch nasser Fäulnis. Dahinter das Haus. Es will leer wirken. Läden hängen schief, Fenster starren dunkel, die Luft davor steht still und kalt. Es schafft es nicht. Irgendetwas lastet darin, ein dumpfes Gewicht hinter den Wänden, ein Geruch von bewohntem Dunkel, der durch die Ritzen drückt und dir sagt, dass Leerheit hier nur eine dünne Haut ist.",
+        "Der Pfad fällt zum Fluss. Halb verhängte Fenster. Dort wiegt jemand Getreide, das hier nicht gemahlen wird."
       ],
       "choices": [
         "Weiter"
@@ -43,7 +45,8 @@
         "Darunter steht das Wasser dunkel. Ein Pfahl trägt eine Kerbe, frisch, als hätte jemand abgezählt, wie viel das Holz noch trägt, bevor es jemanden verrät.",
         "Wer hier stürzt, stürzt nicht weit. Weit genug, dass das Dorf es als Unfall verkaufen kann.",
         "Die Bohlen geben nach, eine mehr als die andere. Unter dir läuft der Fluss gegen die Pfähle, und einer davon ist frisch abgesägt.",
-        "Wer hier nachts geht, will nicht gesehen werden. Die Spuren im Schlamm führen nicht zum Dorf."
+        "Wer hier nachts geht, will nicht gesehen werden. Die Spuren im Schlamm führen nicht zum Dorf.",
+        "Der Steg ist morsch. Wer einbricht, fällt ins kalte Wasser und warnt den Mann am Lagerhaus."
       ],
       "choices": [
         "Weiter"
@@ -59,7 +62,8 @@
         "Ein Wächter sitzt im Schatten, nicht schlafend. Er wartet auf Geräusche, nicht auf Gründe.",
         "An der Schwelle klebt Matsch in einem Muster, das zum Uferpfad passt. Jemand trägt hierher, was unten fehlen soll.",
         "Das Lagerhaus steht auf Pfählen. Das Wasser darunter ist schneller als der Blick durch die Ritzen.",
-        "An einem Balken hängt ein Siegel, nicht Holms. Die Kisten darunter sind zu leicht für Korn und zu schwer für leeres Holz."
+        "An einem Balken hängt ein Siegel, nicht Holms. Die Kisten darunter sind zu leicht für Korn und zu schwer für leeres Holz.",
+        "Das Lagerhaus ist zu gut für dieses Ufer. Die Waage darin gehört nicht dem, der sie benutzt."
       ],
       "choices": [
         "Weiter"
@@ -75,7 +79,8 @@
         "An der Wand ein Bündel Schuldscheine. Einer trägt Bertoks Zeichen, schief und zu oft gefaltet. Er sieht dich an wie eine Lieferung, die zu früh gekommen ist.",
         "„Getreide hat einen Preis“, sagt er. „Leute, die ihn nicht zahlen, sollen nicht so tun, als gehöre ihnen das Tal. Die Mühle mahlt, wenn ich es erlaube. Das Dorf isst, wenn ich es erlaube. Du stehst dazwischen.“",
         "Hinter ihm hängen Zettel mit Mengen, die das Dorf nicht mehr gesehen hat, seit das Rad nur noch schlägt. Die Bücher liegen offen. Die Zahlen stimmen, und genau das ist der Druck.",
-        "Das Fenster geht zum Fluss, nicht zur Mühle, obwohl die Mühle ihn bezahlt. Er spricht von Lieferung. Bertoks Namen sagt er nicht. Der Schein an der Wand sagt ihn trotzdem."
+        "Das Fenster geht zum Fluss, nicht zur Mühle, obwohl die Mühle ihn bezahlt. Er spricht von Lieferung. Bertoks Namen sagt er nicht. Der Schein an der Wand sagt ihn trotzdem.",
+        "„Getreide hat einen Preis“, sagt Rennik. „Leute, die ihn nicht zahlen, sollen nicht so tun, als gehöre ihnen das Tal.“ An der Wand hängt Bertoks Zeichen. Rennik sagt den Namen nicht. Der Schein sagt ihn."
       ],
       "choices": [
         "Weiter"

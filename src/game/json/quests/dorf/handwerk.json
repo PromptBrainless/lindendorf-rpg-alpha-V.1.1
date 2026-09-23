@@ -13,7 +13,8 @@
         "Schmiede und Apotheke teilen sich eine Mauer und sonst wenig. Auf der einen Seite schlägt Eisen auf Eisen, langsam, als spare jemand die Schläge. Auf der anderen steht die Tür einen Spalt offen, und es riecht nach Kräutern, die man nicht mehr zum Kochen verwendet.",
         "Wer hier Hilfe sucht, muss sich entscheiden, ob er blutet oder fiebert. Manche brauchen beides und gehen trotzdem zuerst zur falschen Tür.",
         "Zwei Türen. Hinter der einen Eisen, hinter der anderen Alkohol und trockene Blätter.",
-        "In der Rinne dazwischen schwimmen Kohlenstaub, welke Blätter und ein Stück blutiger Wolle. Über Kerns Tür hängt nichts. Wer sie braucht, weiß, wo sie wohnt."
+        "In der Rinne dazwischen schwimmen Kohlenstaub, welke Blätter und ein Stück blutiger Wolle. Über Kerns Tür hängt nichts. Wer sie braucht, weiß, wo sie wohnt.",
+        "Auf der einen Seite schlägt Eisen auf Eisen. Auf der anderen riechen Kräuter, die man nicht mehr zum Kochen verwendet. Wer hier Hilfe sucht, entscheidet, ob er blutet oder fiebert."
       ],
       "choices": [
         "Zum Schmied",
@@ -32,7 +33,8 @@
         "„Damit gräbt man keinen Steinbruch frei. Damit macht man nur Lärm.“",
         "Die Esse glimmt schwach. Auf dem Kohlehaufen liegt eine Decke, damit der Regen nicht nimmt, was das Dorf noch wärmen kann.",
         "An der Wand hängen drei unbeschlagene Hufeisen. Im Stall nebenan steht kein Pferd.",
-        "Der Schmied trägt eine Lederschürze voller heller Schnitte. „Eisen ist nicht knapp“, sagt er. „Zeit ist knapp. Kohle ist knapp. Hände sind knapp.“"
+        "Der Schmied trägt eine Lederschürze voller heller Schnitte. „Eisen ist nicht knapp“, sagt er. „Zeit ist knapp. Kohle ist knapp. Hände sind knapp.“",
+        "Eisen schlägt auf Eisen. Der Schmied hat hier keine eigene Rechnung und keinen eigenen Ausgang. Wer Hilfe sucht, muss woanders bluten oder fiebern."
       ],
       "choices": [
         "Weiter"
@@ -49,7 +51,8 @@
         "„Der Restbestand ist kleiner geworden“, sagt sie. „Nicht durch Verkauf.“",
         "An den Wänden hängen Bündel aus Schafgarbe, Wacholder und dunklen Blättern, deren Namen du nicht kennst. Unter jedem Bündel steht mit Kohle ein Datum.",
         "Kern trägt die Ärmel hochgekrempelt. Auf ihren Unterarmen liegen alte Brandnarben. Ihre Hände riechen nach Alkohol und Eisen.",
-        "„Verband verschwindet nicht allein“, sagt sie. „Und wer ihn stiehlt, rechnet mit Wunden.“"
+        "„Verband verschwindet nicht allein“, sagt sie. „Und wer ihn stiehlt, rechnet mit Wunden.“",
+        "Kern wiegt Kräuter, noch nicht den Brunnen. Auf dem Platz ist sie die Heilerin. Die Befragung des Wassers beginnt erst am Eimer."
       ],
       "choices": [
         "Weiter"

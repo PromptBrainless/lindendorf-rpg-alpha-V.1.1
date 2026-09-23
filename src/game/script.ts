@@ -11,7 +11,7 @@ import {
 } from "./engine";
 import type { Runtime } from "./runtime";
 import { INTRO_ARTIFACT_CONTENT, INTRO_WEG_CONTENT } from "./content";
-import { INTRO_ANKUNFT, INTRO_HANG, INTRO_LINDENDORF, INTRO_TAL } from "./json/ankunft";
+import { INTRO_ANKUNFT, INTRO_HANG, INTRO_LINDENDORF, INTRO_RAUCH_GRABEN, INTRO_TAL } from "./json/ankunft";
 import { LAGER_CONTENT, LAGER_WEGE, mitPreis } from "./lager-content";
 import { schliesseLager } from "./taten";
 import { rueckeZeitVor, leseTageszeit, wendeNaechstePhaseAn } from "./tageszeit";
@@ -91,6 +91,15 @@ async function szeneIntro(rt: Runtime, held: Held) {
     portrait: null,
     held,
     lines: INTRO_TAL.lines,
+  });
+
+  await rt.present({
+    id: INTRO_RAUCH_GRABEN.id,
+    title: INTRO_RAUCH_GRABEN.title,
+    art: "ditch",
+    portrait: null,
+    held,
+    lines: INTRO_RAUCH_GRABEN.lines,
   });
 
   await rt.present({
@@ -2578,6 +2587,22 @@ function epilog(held: Held): string[] {
     bits.push("Vahl grüßt dich zu höflich. Die Gasse bleibt leer, die Wahrheit auch.");
   } else if (held.loesungswegGasse === "vernichtet") {
     bits.push("Die Gerbereigasse wird bebaut. Fenns Hand um das Zaunbrett ist still.");
+  }
+  if (held.loesungswegGasse === "veroeffentlicht") {
+    bits.push("Die Namen werden laut. Die Gasse bekommt einen Namen, den man nicht mehr vergisst. Lindendorf nennt das Unordnung.");
+  } else if (held.loesungswegGasse === "vernichtet") {
+    bits.push("Das Feuer nimmt die Namen. Lindendorf nennt das Frieden. Du weißt, es ist nur Vergessen.");
+  } else if (held.lagerGeloest && held.loesungsweg === "kampf" && held.loesungswegMuehle !== "verraten" && held.loesungswegBrunnen !== "verhandelt" && !held.grovinVersprechen) {
+    bits.push("Die Gasse bleibt leer. Das Wasser ist klarer, aber nie genug. Lindendorf nennt das Ordnung.");
+  }
+  if (held.loesungswegBrunnen === "verhandelt" || held.grovinVersprechen) {
+    bits.push("Das Wasser fließt. Grovin geht nicht mehr am Waldrand. Dennek rührt nicht mehr im Eimer. Es ist nur eine andere Schuld.");
+  }
+  if (held.loesungswegMuehle === "schleich" || held.loesungswegMuehle === "verhandelt") {
+    bits.push("Die Mühle mahlt. Die Säcke klingen hohl. Lene zählt weiter. Lindendorf nennt das Schutz.");
+  }
+  if (held.artefaktErhalten && (held.loesungswegGasse === "veroeffentlicht" || held.loesungswegGasse === "vernichtet")) {
+    bits.push("Das Siegel aus dem Mantel des Fremden liegt offen. Du weißt nicht, ob unter der Kapelle etwas gebunden war.");
   }
   if (held.verwundet) bits.push("Die Wunde bleibt eine Weile. Narben sind in Lindendorf eine Art Ausweis.");
   if (hat(held, SCHLUESSEL)) bits.push("Der Schlüssel zum Seitentor ist noch da. Türen bleiben eine Versuchung.");

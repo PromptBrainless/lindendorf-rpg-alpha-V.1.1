@@ -18,7 +18,7 @@ export const LORE: readonly LoreFakt[] = [
   },
   {
     id: "fremder-silber",
-    text: "Der Fremde am Weg ist namenlos, mager, der linke Ärmel blutig. Unter dem Mantel trägt er Kirchensilber: ein offenes Auge über drei Linien. Dasselbe Zeichen stand vor Jahren an einem Grenzstein am Nordpass. Händler haben sich davor bekreuzigt.",
+    text: "Der Fremde am Weg ist namenlos, mager, der linke Ärmel blutig. Unter dem Mantel trägt er kein Schmuckstück, sondern einen Rest des Siegels, das Ordnung versprach: ein offenes Auge über drei Linien. Dasselbe Zeichen stand vor Jahren an einem Grenzstein am Nordpass.",
     szenen: ["intro-fremder-am-weg"],
     wissen: ["artefakt_gesehen"],
     figuren: ["der Fremde"],
@@ -33,7 +33,7 @@ export const LORE: readonly LoreFakt[] = [
   {
     id: "tal-rauch",
     text: "Über dem Tal steht Rauch ohne Wind. Felder sind abgeerntet, Zäune nicht gerichtet. Am Waldrand steckt ein Kinderschuh im Schlamm.",
-    szenen: ["intro-tal", "intro-hang"],
+    szenen: ["intro-tal", "intro-hang", "intro-rauch-graben"],
     wissen: ["hang_hinweis"],
   },
   {
@@ -44,7 +44,7 @@ export const LORE: readonly LoreFakt[] = [
   },
   {
     id: "amt-nennt-nur-banditen",
-    text: "Das Amt benennt nur eine Bedrohung: Banditen im Steinbruch, damit das Dorf wieder schläft. Wasser, Mehl und die leere Gasse spricht niemand offiziell aus.",
+    text: "Das Amt benennt öffentlich nur die Banditen im Steinbruch. Holm weiß, dass das Kesseljahr kein Unfall war. Wasser, Mehl und die leere Gasse bleiben ungesagt, weil der Pakt nicht laut werden darf.",
     szenen: ["dorf-platz", "rathaus"],
     wissen: ["auftrag_erhalten", "banditen_bekannt"],
     figuren: ["Holm"],
@@ -97,7 +97,7 @@ export const LORE: readonly LoreFakt[] = [
   },
   {
     id: "dennek-grovin",
-    text: "Dennek hat Grovin den Brunnenbau nicht bezahlt und ihn auf später vertröstet. Nach dem trockenen Jahr gefragt oder an die Mauer gedrückt, kommt der Name Grovin heraus — ruhig oder aus Versehen. Seine Stiefel tragen helleren Lehm als der Platz.",
+    text: "Dennek hat Grovin den Lohn bewusst vorenthalten, damit das Wasser ein Druckmittel bleibt. Nach dem trockenen Jahr gefragt oder an die Mauer gedrückt, kommt der Name Grovin heraus. Seine Stiefel tragen helleren Lehm als der Platz.",
     szenen: ["ratsherr-dennek"],
     wissen: ["dennek_schuld", "grovin_zisterne"],
     figuren: ["Dennek", "Grovin"],
@@ -117,7 +117,7 @@ export const LORE: readonly LoreFakt[] = [
   },
   {
     id: "grovin-rechnung",
-    text: "Grovin hat den Brunnen gebaut und nie Lohn gesehen. Er will das Dorf nicht vergiften. Er will, dass die Rechnung gehört wird. Fünf Gold lassen ihn die Zisterne behalten: das Wasser wird nur teilweise klar. Verhandeln geht nur, wenn zuvor nach seinem Grund gefragt wurde, und legt Holm eine echte Schuld auf. Die Sperre unbemerkt umzulegen klärt das Wasser, ohne dass das Dorf den Grund erfährt. Sie mit Gewalt zu zerstören vertreibt ihn. Dann bleibt er eine Spur am Waldrand.",
+    text: "Grovin hat den Brunnen gebaut und nie Lohn gesehen. Er kennt den alten Wasserlauf und könnte das Dorf ganz vom Wasser nehmen. Er will Anerkennung, nicht Gift. Fünf Gold lassen ihn die Zisterne behalten: das Wasser wird nur teilweise klar. Verhandeln geht nur, wenn zuvor nach seinem Grund gefragt wurde, und legt Holm eine echte Schuld auf. Die Sperre unbemerkt umzulegen klärt das Wasser, ohne dass das Dorf den Grund erfährt. Sie mit Gewalt zu zerstören vertreibt ihn. Dann bleibt er eine Spur am Waldrand.",
     szenen: ["grovins-zisterne"],
     wissen: ["grovin_zisterne", "dennek_schuld"],
     figuren: ["Grovin", "Dennek", "Holm"],
@@ -131,7 +131,7 @@ export const LORE: readonly LoreFakt[] = [
   },
   {
     id: "muehle-still",
-    text: "Das Rad schlägt, es mahlt nichts. Bertoks Hände sind mehlweiß, obwohl seit Tagen nichts gemahlen wurde. Schlechtes Korn und niedriger Wasserstand sind seine ersten Ausreden.",
+    text: "Das Rad schlägt, es mahlt nichts. Bertoks Hände sind mehlweiß, obwohl seit Tagen nichts gemahlen wurde. Schlechtes Korn und niedriger Wasserstand sind die Sätze für den ersten Besuch. Die Stille deckt die Kammer.",
     szenen: ["muehle-stumm", "bertok-am-mahlwerk"],
     wissen: ["muehle_stillstand"],
     figuren: ["Bertok"],
@@ -145,7 +145,7 @@ export const LORE: readonly LoreFakt[] = [
   },
   {
     id: "lene-nische",
-    text: "Lene ist Bertoks Tochter, nicht Sanna. Sie zählt dieselben Säcke und stellt sich vor die hintere Wand. Dahinter sitzen Yorwin, ihr Schwager, und zwei Kinder. Lenes Schwester ist tot. Rennik weiß von ihnen. Deshalb steht die Mühle.",
+    text: "Lene ist Bertoks Tochter, nicht Sanna. Sie zählt dieselben Säcke und stellt sich vor die hintere Wand. Dahinter sitzen Yorwin, ihr Schwager, und zwei Kinder, Teil der Leute, die das Kesseljahr aus den Listen genommen hat. Lene führt ihre eigenen Namen. Ihre Schwester ist tot. Rennik weiß von ihnen. Deshalb steht die Mühle.",
     szenen: ["lene-in-der-kornkammer", "hinter-der-nische", "kornkammer"],
     wissen: ["fluechtlinge_muehle"],
     figuren: ["Lene", "Yorwin", "Bertok", "Rennik"],
@@ -185,7 +185,7 @@ export const LORE: readonly LoreFakt[] = [
   },
   {
     id: "fenn-kesseljahr",
-    text: "Fenn sitzt an der Kirchmauer, nicht am Brunnen, und trägt ein Stück Lattenzaun. Er erzählt das Kesseljahr nur, wenn man fragt statt drängt. Die Gasse wurde vernagelt und bewacht wie bei Pest. Drei aus dem Rat hielten den Schlüssel zum Korn. Das Korn kam nicht, das Fieber schon. Im Frühjahr war kaum noch jemand da. Das Land wurde vor der Trauer verteilt. Vahls Großvater hat zuerst gezeichnet.",
+    text: "Fenn sitzt an der Kirchmauer, nicht am Brunnen, und trägt ein Stück Lattenzaun. Er erzählt nur, wenn man wartet. Als Kind hat er gesehen, wie Menschen aus der Gasse geholt wurden. Die Gasse wurde vernagelt. Das Korn kam nicht, das Fieber schon. Das Land wurde verteilt, bevor die Trauer kam. Vahls Großvater hat zuerst gezeichnet. Den ganzen Pakt sagt er nicht.",
     szenen: ["fenn", "fenn-an-der-kirchmauer", "gasse-kirche"],
     wissen: ["kesseljahr"],
     figuren: ["Fenn", "Vahl"],
@@ -219,7 +219,7 @@ export const LORE: readonly LoreFakt[] = [
   },
   {
     id: "ilse-liste",
-    text: "Im Gewölbe liegt Ilses Wachstuch: Namen, Daten, drei Ratsherren, die Aufteilung. Vahls Großvater steht zuerst. Stücke davon sind heute Mühle, Rathausplatz und Gerberei. Die Häuser der Gasse stehen nur noch als Fläche.",
+    text: "Im Gewölbe liegt Ilses Wachstuch: Namen, Daten, die drei Familien Vahl, Dennek und Holm. Wer sich wehrte, hat keinen Eintrag. Andere wurden in die Mühle, in den Steinbruch und in die Lagerhäuser am Fluss verteilt. Vahls Großvater steht zuerst. Die Häuser der Gasse sind nur noch Fläche. Die Kirche hält, was das Amt nicht zählen will.",
     szenen: ["im-gewoelbe", "hinter-dem-stein"],
     wissen: ["ilses_liste"],
     figuren: ["Ilse Brandtner", "Vahl"],
@@ -233,13 +233,13 @@ export const LORE: readonly LoreFakt[] = [
   },
   {
     id: "glockenweg-nutzung",
-    text: "Der alte Weg über der Kapelle trug früher Salz, Mehl und Nachrichten. Heute ist er Vorwarnung und Transport der Banditen. Die Glocke ist Werkzeug, kein Geist.",
+    text: "Der alte Weg über der Kapelle trug Salz, Mehl, Listen und, wenn es niemand sehen sollte, die, die nicht mehr gezählt wurden. Die Glocke ist das Signal dafür, kein Gebet. Heute bewachen die Banditen denselben Weg für jemanden im Dorf.",
     szenen: ["glockenweg", "wald"],
     wissen: ["glockenweg_bekannt"],
   },
   {
     id: "sanna-siegel",
-    text: "Sanna hat eine versiegelte Nachricht für Lindendorf im Geröll verloren. Das Siegel ist nicht Holms gewöhnliches Wachs. Wer die Spur liest oder sie beruhigt und den Inhalt rekonstruiert, kennt im Wald später eine sichere Abzweigung.",
+    text: "Sanna hat eine versiegelte Nachricht für Lindendorf im Geröll verloren. Das rote Wachs ist keine Andacht. Es markiert, dass etwas entfernt wurde und nicht zurückkehren darf. Wer die Spur liest oder sie beruhigt und den Inhalt rekonstruiert, kennt im Wald später eine sichere Abzweigung.",
     szenen: ["sanna-die-botin", "glockenweg"],
     wissen: ["glockenweg_bekannt", "rotes_siegel_gesehen"],
     figuren: ["Sanna"],
@@ -253,13 +253,19 @@ export const LORE: readonly LoreFakt[] = [
   },
   {
     id: "glocke-vorwarnung",
-    text: "Das morsche Seil der Kapellenglocke zu sichern lässt das Lager unvorbereitet. Scheitert es, läutet die Glocke, und die Banditen wissen, dass jemand kommt.",
+    text: "Das morsche Seil der Kapellenglocke zu sichern lässt das Lager unvorbereitet. Scheitert es, läutet die Glocke, und die Banditen wissen, dass jemand kommt. Sie läutet nicht zum Gebet. Sie meldet eine Bewegung auf dem Weg.",
     szenen: ["die-kapellenglocke", "lager-hub"],
     wissen: ["glocke_vorteil", "banditen_gewarnt"],
   },
   {
+    id: "pakt-grube",
+    text: "Unter der Kapelle liegt keine geweihte Kammer, sondern eine Grube, älter als die Kirche. Ob dort vor dreißig Jahren etwas gebunden wurde, bleibt offen. Seitdem sterben weniger Menschen offiziell. Verschwinden tun mehr.",
+    szenen: ["die-kapellenglocke"],
+    wissen: ["kesseljahr", "glockenweg_bekannt"],
+  },
+  {
     id: "lager-kiste",
-    text: "Im Steinbruch: Kess, Narbe, kein Wappen, stumpfe Würfel. Drei Zelte, ein Feuer, eine Kiste mit dem Siegel der Kirche von Lindendorf. Daneben ein Kinderumhang, den niemand anfasst. Unter dem Silber liegen Listen mit Namen, Mengen und Tagen. Manche Namen sind aus dem Dorf. Neben anderen steht nur ein Kreuz.",
+    text: "Im Steinbruch: Kess, Narbe, kein Wappen, stumpfe Würfel. Sie bewachen den alten Transportweg für jemanden im Dorf. Drei Zelte, ein Feuer, eine Kiste mit dem Siegel der Kirche von Lindendorf. Daneben ein Kinderumhang, den niemand anfasst. Unter dem Silber liegen Listen mit Namen, Mengen und Tagen. Manche Namen sind aus dem Dorf. Neben anderen steht nur ein Kreuz.",
     szenen: ["lager-hub", "lager-schleich", "lager-kampf"],
     wissen: ["banditen_bekannt"],
     figuren: ["Kess"],
@@ -279,7 +285,7 @@ export const LORE: readonly LoreFakt[] = [
   },
   {
     id: "muster",
-    text: "Die Schlusskarte ist die Rückkehr zu Holm, nicht der Abschied vom Tal. Das Amt hat nur die Banditen ausgesprochen. Was Brunnen, Mühle, Gasse und Lager geändert haben, steht im Epilog danach, und nur für die Wege, die du gegangen bist.",
+    text: "Kein Heilungsende. Die Rückkehr zu Holm zeigt, welchen Zustand die Wege hinterlassen: Ordnung, bei der die Lüge bleibt; Namen, die laut werden; Grovin, der anerkannt wird; oder die Mühle, die ihre Leute weiter versteckt. Eine Reinigung gibt es nicht.",
     szenen: ["ende"],
     wissen: ["versorgung_muster", "kesseljahr", "ilses_liste"],
     figuren: ["Dennek", "Rennik", "Vahl", "Ilse Brandtner"],

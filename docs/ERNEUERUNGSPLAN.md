@@ -2,7 +2,7 @@
 
 **Nicht der Auftrag der nächsten Sitzung.** Technisches Archiv ab 20. September 2026.
 Was jetzt gilt: `AGENTS.project.md` und `docs/KONTEXT_NEUES_FENSTER.md`.
-Nächster Schritt steht dort nicht. Der Nutzer nennt ihn.
+Repo jetzt: `PromptBrainless/lindendorf-rpg-alpha-V.1.1`. Der Name SpielVersion1.0 darunter ist der alte.
 
 Darunter der Plan, wie er am 20. September galt.
 

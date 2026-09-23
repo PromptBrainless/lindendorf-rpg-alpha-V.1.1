@@ -450,7 +450,7 @@ export const legeKanonAufGithub = createServerFn({ method: "POST" })
     const { ConnectorType } = await import("@/lib/app-data/types");
     const options = { connectorType: ConnectorType.Mcp, connectorCatalogId: "github" };
     const owner = "PromptBrainless";
-    const repo = "SpielVersion1.0";
+    const repo = "lindendorf-rpg-alpha-V.1.1";
     const path = `docs/kanon-auflagen/${data.schluessel}.json`;
     const bestehend = await callTool("github___get_file_contents", { owner, repo, path }, options);
     if (bestehend.pending) {

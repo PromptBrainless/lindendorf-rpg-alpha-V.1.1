@@ -12,11 +12,20 @@ export const INTRO_TAL = karte("intro-tal", "Das Tal", "forest", [
   "Du verstehst noch nicht, was hier geschehen ist. Aber du erkennst die Handschrift einer Gegend, in der Menschen gelernt haben, ihre Fragen leise zu stellen, aus Angst, eine Antwort könnte lauter zurückkommen als die Frage selbst.",
 ]);
 
+export const INTRO_RAUCH_GRABEN = karte("intro-rauch-graben", "Rauch und Graben", "ditch", [
+  "Weiter unten steigt Rauch, senkrecht und ohne Neigung. Kein Wind fasst ihn an.",
+  "Er bleibt, wo er ist. Eine graue Säule über den Hängen. Er trägt nassen Brand und kalte Asche nicht fort.",
+  "Vom Steinbruch her, sagst du dir, obwohl du den Steinbruch noch nicht gesehen hast. Nur die Richtung. Osten.",
+  "Ein Rauch, der so gerade steht, gehört keinem Herd. Herdfeuer wackeln. Dieses tut es nicht.",
+  "Unterhalb der Kapelle klafft ein trockener Graben im Hang. Einst muss dort Wasser gelaufen sein. Die Mulde ist glatt gewaschen, jetzt staubig und tot.",
+  "Darin liegen die Knochen von Tieren, ausgebleicht und ordentlich nebeneinander gereiht, als hätte sie jemand dort abgelegt, statt sie verwesen zu lassen.",
+  "Kein Geruch von Fäulnis mehr. Nur Kalk und Kälte. Wer so legt, zählt.",
+]);
+
 export const INTRO_HANG = karte("intro-hang", "Am Hang", "chapel", [
   "Oberhalb des Dorfes schneidet ein alter Weg den Hang, hart und schmal. Der Schotter unter deinen Sohlen knirscht nass und gibt bei jedem Schritt ein wenig nach, als traue er deinem Gewicht nicht.",
   "Dort oben steht eine Kapelle, ihr Dach dunkler als der Himmel darüber, als hätte man das Holz eigens gegen das Licht gewählt.",
   "Eine kleine Glocke bewegt sich einmal über dem Geröll. Du kennst den Weg noch nicht. Du merkst dir nur den Ton.",
-  "Unterhalb der Kapelle klafft ein trockener Graben im Hang. Einst muss dort Wasser gelaufen sein. Jetzt liegen darin die Knochen von Tieren, ausgebleicht und ordentlich nebeneinander gereiht, als hätte sie jemand dort abgelegt, statt sie verwesen zu lassen.",
   "Über dem Türsturz klebt ein Streifen rotes Wachs, frisch gebrochen — dasselbe Zeichen, das du unten im Dorf wiederfinden wirst. Jemand markiert in dieser Gegend Türen, die niemand öffnen soll.",
   "Die Glocke schweigt wieder. Trotzdem hast du das Gefühl, dass etwas im Tal jetzt weiß, dass du angekommen bist, und dass es diese Kenntnis nicht vergessen wird, nur weil du weitergehst.",
 ]);
@@ -81,6 +90,7 @@ export const ANKUNFT_TEILE: TeilJson[] = [
   teil("fremder", "Der Fremde", [fremder]),
   teil("tal", "Tal und Dorf", [
     INTRO_TAL,
+    INTRO_RAUCH_GRABEN,
     INTRO_RAUCH,
     INTRO_KINDERSCHUH,
     INTRO_HANG,

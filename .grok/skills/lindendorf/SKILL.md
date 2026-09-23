@@ -13,8 +13,12 @@ user-invocable: true
 
 # Lindendorf
 
-Nachschlageanweisung für den vorhandenen Kanon. Keine neue Quest, keine
-neue Engine. Neue Reihen schreibt der Skill `lindendorf-questreihe`.
+Nachschlageanweisung. Der inhaltliche Stand vom 23. September 2026 liegt in
+`wiki/`. Die 71 Seiten in `references/questuebersicht.md` sind der bisher
+spielbare Text. Widersprechen sie dem Wiki, ist das Wiki das Ziel und der
+Code das, was der Spieler noch sieht. Nicht beides in einen Satz ziehen.
+Neue Reihen schreibt der Skill `lindendorf-questreihe`, und nur wenn der
+Auftrag eine Quest nennt.
 
 Vor dem Zitieren, Prüfen oder Nachziehen, in dieser Reihenfolge:
 

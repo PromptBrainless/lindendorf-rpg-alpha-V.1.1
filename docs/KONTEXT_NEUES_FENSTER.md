@@ -3,51 +3,41 @@
 **Stand:** 23. September 2026. Pflicht nach `AGENTS.project.md`.
 
 Aktives Repo: [PromptBrainless/lindendorf-rpg-alpha-V.1.1](https://github.com/PromptBrainless/lindendorf-rpg-alpha-V.1.1).
-Vergleichs- und Archivstand: [export/spielversion1-7170673/](../export/spielversion1-7170673/). Der Export ist kein aktiver Arbeitsbaum und keine zweite Implementierungswahrheit.
+Inhaltlicher Stand: `wiki/`. Nicht das GitHub-Wiki, der Ordner im Repo.
 
-## Was das Spiel ist
+## Was das Spiel heute tut
 
 Lindendorf, illustriertes Textabenteuer. Deutsch, Du, Präsens.
-Fluss, unverändert:
+Fluss, noch unverändert:
 
 > Heldenerstellung → Prolog → Dorf-Schleife → Glockenweg oder Wald → Lager → Ende
 
 Start: Stärke, Geschick, Charisma je 10. W10. Schwellen 8 / 12 / 15.
-Zehn Lagen vor dem Tal. Höchstens drei Zustände.
+Zehn Lagen vor dem Tal. Höchstens drei Zustände. Noch keine Klassen und keine Karrierestufen im Code.
 
-## Was schon sitzt
+## Was schon spielbar ist
 
 | Stück | Datei |
 |---|---|
 | Mühle, Brunnen, Kesseljahr | `quest-muehle.ts`, `quest-brunnen.ts`, `quest-kesseljahr.ts` |
 | Hauptfluss, Lager | `script.ts`, `lager-content.ts` |
-| Weltwerkzeug | HUD **Welt**, `src/components/welt/WeltEditor.tsx`, Verträge `src/game/gm/` |
+| Weltwerkzeug | HUD **Welt**, `src/components/welt/WeltEditor.tsx` |
 | Wissen | 22 Keys, `knowledge.ts` |
-| Lore-Grenze | 41 Fakten, `src/game/lore.ts` |
-| Textvergleich | `src/game/textvergleich.ts`, `npm run check:textvergleich` |
+| Lore-Grenze | `src/game/lore.ts`, am Wiki ausgerichtet |
 | Stimme | `werkstatt-vertrag.ts`, nur die offene Seite |
 
-Nicht neu erfinden: `SpielleiterPanel`, `EditorApp`, `WeltEngine`, ein zweites Runtime.
-`/editor` ist die Passworttür. `?welt` gilt nicht.
+## Was das Wiki jetzt vorgibt und der Code noch nicht erzählt
 
-## Was die letzte Sitzung geändert hat
+- Pakt unter der Kapelle. Drei Familien: Vahl, Dennek, Holm. Etwa dreißig Jahre.
+- Umverteilung in Mühle, Steinbruch, Lagerhäuser. Ilse zählt, wen das Amt streicht.
+- Rotes Wachs als Löschmarke. Glocke als Signal.
+- Mühle als Versteck und Verteiler, nicht nur als Schuld bei Rennik.
+- Banditen als Wache eines Transportwegs.
+- Enden als Zustand des Dorfes, ohne Reinigung: `wiki/Enden.md`.
+- Klassen, Karrieren, Status, Schicksal: dokumentiert, nicht mechanisch.
 
-Abgleich, kein neuer Plot.
+Eine Szene erst umschreiben, wenn der Auftrag sie nennt. Reihenfolge: `wiki/Queststruktur.md`. Den Pakt nicht in die Ankunft vorziehen.
 
-- Fenn sitzt an der Kirchmauer. Der Held nicht.
-- Bertok steht beim ersten Besuch nicht unter Druck.
-- Renniks Wand zeigt Bertoks Schein. Die zweite Schuld bleibt im Mahlstein.
-- Hinter dem Stein nennt Vahls Großvater und die Aufteilung.
-- Die Schlusskarte ist die Rückkehr zu Holm.
-- Karrieren, Schicksal, Glück, Status und Herkunftsbegriffe bleiben erhalten, werden jedoch später als eigener Ausbau bearbeitet.
+## Nicht anfassen ohne Auftrag
 
-## Was liegen bleibt
-
-`docs/UMBAU_UMGEBUNG.md` listet acht mögliche Anpassungen der Prompts.
-Keine davon anfangen, bevor der Nutzer die Nummer nennt.
-
-Nicht als Nächstes ausdenken: neue Quest, neue Flags, neue Bilder, kürzere Texte, Lager noch einmal extrahieren, Glockenweg noch einmal bauen. Beides ist spielbar.
-
-## Wenn der Auftrag unklar ist
-
-Nachfragen. Nicht den Erneuerungsplan als Auftrag lesen. Nicht die Manus-Anweisung. Nicht einen alten Handoff.
+Engine, Runtime, Auth, neue ArtKeys, Hauptfluss durch eine neue Quest ersetzen.
